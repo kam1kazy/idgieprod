@@ -10,9 +10,9 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ onPlay }) => {
     <div className="flex items-center gap-6">
       <button
         onClick={onPlay}
-        className="w-12 h-12 flex items-center justify-center rounded-full bg-white text-gray-900 shadow-lg hover:scale-105 transition"
+        className="w-12 h-12 flex items-center justify-center rounded-full bg-white text-gray-900 shadow-lg hover:scale-105 pl-[0.188rem] transition cursor-[pointer]"
       >
-        <span className="relative w-6 h-6 pl-[3px]">
+        <span className="relative w-6 h-6 \">
           <Image
             src="/images/icons/play.svg"
             alt="play"

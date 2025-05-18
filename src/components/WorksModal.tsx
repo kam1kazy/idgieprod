@@ -3,13 +3,14 @@ import TrackList from './Player/TrackList';
 import ProgressBar from './Player/ProgressBar';
 import PlayerControls from './Player/PlayerControls';
 import VolumeControl from './Player/VolumeControl';
+import PlaylistTabs from './Player/PlaylistTabs';
+import { Category, Genre, playlistData } from '@/types/playlist';
 
-const tracks = [
-  { title: 'Beautiful Mistakes', duration: '2:34' },
-  { title: 'Best My Heart', duration: '2:34' },
-  { title: 'Cold (feat. Future)', duration: '2:34' },
-  { title: 'Daylight', duration: '2:34' },
-];
+const genreToImage: Record<Genre, string> = {
+  POP: '/images/genres/pop.png',
+  'HIP-HOP': '/images/genres/hip-hop.png',
+  ROCK: '/images/genres/rock.png',
+};
 
 interface WorksModalProps {
   isOpen: boolean;
@@ -19,6 +20,8 @@ interface WorksModalProps {
 const WorksModal: React.FC<WorksModalProps> = ({ isOpen, onClose }) => {
   const [volume, setVolume] = useState(66);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<Category>('Песни под ключ');
+  const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);
@@ -28,6 +31,8 @@ const WorksModal: React.FC<WorksModalProps> = ({ isOpen, onClose }) => {
     setVolume(newVolume);
   };
 
+  const currentTracks = playlistData[selectedCategory][selectedGenre];
+
   return (
     <div
       className={`fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-[#06090bbf]/75 backdrop-blur-md transition-opacity duration-300 ${
@@ -36,7 +41,7 @@ const WorksModal: React.FC<WorksModalProps> = ({ isOpen, onClose }) => {
       onClick={onClose}
     >
       <div
-        className={`relative m-4 w-full max-w-[70%] rounded-3xl p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
+        className={`relative m-4 w-full h-[80%] max-w-[70%] max-h-[70%] rounded-3xl p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
           isOpen
             ? 'opacity-100 translate-y-0 scale-100'
             : 'opacity-0 -translate-y-28 scale-90 pointer-events-none'
@@ -56,12 +61,20 @@ const WorksModal: React.FC<WorksModalProps> = ({ isOpen, onClose }) => {
               <div className="text-gray-300 mb-6">ft. Lil Durk, Capella Grey</div>
               <ProgressBar currentTime="1:15" totalTime="2:34" progress={50} />
             </div>
-            <TrackList tracks={tracks} />
+            <div className="space-y-6">
+              <PlaylistTabs
+                selectedCategory={selectedCategory}
+                selectedGenre={selectedGenre}
+                onCategoryChange={setSelectedCategory}
+                onGenreChange={setSelectedGenre}
+              />
+              <TrackList tracks={currentTracks} />
+            </div>
           </div>
           {/* Правая часть: обложка и контролы */}
           <div className="flex flex-col items-center justify-center gap-8">
             <img
-              src="/images/genres/pop.png"
+              src={genreToImage[selectedGenre]}
               alt="Album Cover"
               className="w-48 h-48 rounded-xl object-cover shadow-lg mb-4"
             />
