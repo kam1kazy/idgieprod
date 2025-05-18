@@ -12,6 +12,7 @@ const TOOLS = [
   { label: 'Cubase', icon: 'images/tools/cubase.svg' },
   { label: 'FL Studio', icon: 'images/tools/fl-studio.svg' },
   { label: 'Pro Tools', icon: 'images/tools/protools.svg' },
+  { label: 'Universal Audio', icon: 'images/tools/uad.svg' },
 ];
 
 const Hero: React.FC = () => {
