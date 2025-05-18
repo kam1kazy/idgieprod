@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import TrackList from './Player/TrackList';
 import ProgressBar from './Player/ProgressBar';
 import PlayerControls from './Player/PlayerControls';
 import VolumeControl from './Player/VolumeControl';
-import PlaylistTabs from './Player/PlaylistTabs';
+import Playlist from './Player/Playlist';
 import { Category, Genre, playlistData, Track } from '@/types/playlist';
 
 const genreToImage: Record<Genre, string> = {
@@ -85,6 +84,14 @@ const WorksModal: React.FC<WorksModalProps> = ({
     }
   };
 
+  const handleSeek = (progress: number) => {
+    if (audioRef.current) {
+      const newTime = (progress / 100) * duration;
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
   const currentTracks = playlistData[selectedCategory][selectedGenre];
 
   return (
@@ -122,21 +129,18 @@ const WorksModal: React.FC<WorksModalProps> = ({
                 currentTime={formatTime(currentTime)}
                 totalTime={formatTime(duration)}
                 progress={(currentTime / duration) * 100 || 0}
+                onSeek={handleSeek}
               />
             </div>
-            <div className="space-y-6">
-              <PlaylistTabs
-                selectedCategory={selectedCategory}
-                selectedGenre={selectedGenre}
-                onCategoryChange={setSelectedCategory}
-                onGenreChange={setSelectedGenre}
-              />
-              <TrackList
-                tracks={currentTracks}
-                onTrackSelect={handleTrackSelect}
-                currentTrack={currentTrack || undefined}
-              />
-            </div>
+            <Playlist
+              selectedCategory={selectedCategory}
+              selectedGenre={selectedGenre}
+              currentTrack={currentTrack || undefined}
+              onCategoryChange={setSelectedCategory}
+              onGenreChange={setSelectedGenre}
+              onTrackSelect={handleTrackSelect}
+              tracks={currentTracks}
+            />
           </div>
           {/* Правая часть: обложка и контролы */}
           <div className="flex flex-col items-center justify-center gap-8">
