@@ -78,7 +78,7 @@ const WorksModal: React.FC<WorksModalProps> = ({ isOpen, onClose }) => {
               alt="Album Cover"
               className="w-48 h-48 rounded-xl object-cover shadow-lg mb-4"
             />
-            <PlayerControls onPlay={handlePlay} />
+            <PlayerControls onPlay={handlePlay} isPlaying={isPlaying} />
             <VolumeControl volume={volume} onVolumeChange={handleVolumeChange} />
           </div>
         </div>
