@@ -74,7 +74,14 @@ const eslintConfig = defineConfig([
       'react-hooks/exhaustive-deps': 'warn',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
-      'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+      'prettier/prettier': [
+        'error',
+        {},
+        { usePrettierrc: true },
+        {
+          endOfLine: 'auto',
+        },
+      ],
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-debugger': 'error',
       'prefer-const': 'error',
