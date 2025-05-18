@@ -4,55 +4,92 @@ export type Category = 'Песни под ключ' | 'Аранжировка' |
 export interface Track {
   title: string;
   duration: string;
+  src: string;
 }
 
-export interface PlaylistData {
-  [key: string]: {
-    [key: string]: Track[];
-  };
-}
-
-export const playlistData: PlaylistData = {
+export const playlistData: Record<Category, Record<Genre, Track[]>> = {
   'Песни под ключ': {
     POP: [
-      { title: 'Beautiful Mistakes', duration: '2:34' },
-      { title: 'Best My Heart', duration: '2:34' },
+      {
+        title: 'Summer Vibes',
+        duration: '3:45',
+        src: '/music/mix/pop/summer-vibes.mp3',
+      },
+      {
+        title: 'Midnight Dreams',
+        duration: '4:20',
+        src: '/music/mix/pop/midnight-dreams.mp3',
+      },
     ],
     'HIP-HOP': [
-      { title: 'Cold (feat. Future)', duration: '2:34' },
-      { title: 'Daylight', duration: '2:34' },
+      {
+        title: 'Street Life',
+        duration: '3:15',
+        src: '/music/mix/hiphop/street-life.mp3',
+      },
+      {
+        title: 'Urban Flow',
+        duration: '4:05',
+        src: '/music/mix/hiphop/urban-flow.mp3',
+      },
     ],
     ROCK: [
-      { title: 'Rock Anthem', duration: '3:15' },
-      { title: 'Guitar Solo', duration: '2:45' },
+      {
+        title: 'Electric Storm',
+        duration: '5:10',
+        src: '/music/mix/rock/electric-storm.mp3',
+      },
+      {
+        title: 'Mountain High',
+        duration: '4:45',
+        src: '/music/mix/rock/mountain-high.mp3',
+      },
     ],
   },
   Аранжировка: {
     POP: [
-      { title: 'Pop Arrangement 1', duration: '2:50' },
-      { title: 'Pop Arrangement 2', duration: '3:10' },
+      {
+        title: 'Pop Arrangement 1',
+        duration: '3:30',
+        src: '/music/mix/pop/arrangement-1.mp3',
+      },
     ],
     'HIP-HOP': [
-      { title: 'Hip-Hop Beat 1', duration: '2:30' },
-      { title: 'Hip-Hop Beat 2', duration: '2:45' },
+      {
+        title: 'Hip-Hop Arrangement 1',
+        duration: '3:45',
+        src: '/music/mix/hiphop/arrangement-1.mp3',
+      },
     ],
     ROCK: [
-      { title: 'Rock Arrangement 1', duration: '3:20' },
-      { title: 'Rock Arrangement 2', duration: '3:00' },
+      {
+        title: 'Rock Arrangement 1',
+        duration: '4:15',
+        src: '/music/mix/rock/arrangement-1.mp3',
+      },
     ],
   },
   'Сведение-мастеринг': {
     POP: [
-      { title: 'Pop Mix 1', duration: '3:00' },
-      { title: 'Pop Mix 2', duration: '2:55' },
+      {
+        title: 'Pop Mix 1',
+        duration: '3:55',
+        src: '/music/mix/pop/mix-1.mp3',
+      },
     ],
     'HIP-HOP': [
-      { title: 'Hip-Hop Mix 1', duration: '2:40' },
-      { title: 'Hip-Hop Mix 2', duration: '2:50' },
+      {
+        title: 'Hip-Hop Mix 1',
+        duration: '4:10',
+        src: '/music/mix/hiphop/mix-1.mp3',
+      },
     ],
     ROCK: [
-      { title: 'Rock Mix 1', duration: '3:15' },
-      { title: 'Rock Mix 2', duration: '3:05' },
+      {
+        title: 'Rock Mix 1',
+        duration: '4:30',
+        src: '/music/mix/rock/mix-1.mp3',
+      },
     ],
   },
 };

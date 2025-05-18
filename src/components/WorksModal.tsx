@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TrackList from './Player/TrackList';
 import ProgressBar from './Player/ProgressBar';
 import PlayerControls from './Player/PlayerControls';
 import VolumeControl from './Player/VolumeControl';
 import PlaylistTabs from './Player/PlaylistTabs';
-import { Category, Genre, playlistData } from '@/types/playlist';
+import { Category, Genre, playlistData, Track } from '@/types/playlist';
 
 const genreToImage: Record<Genre, string> = {
   POP: '/images/genres/pop.png',
@@ -27,18 +27,62 @@ const WorksModal: React.FC<WorksModalProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     console.log('WorksModal: Получена новая категория:', initialCategory);
     setSelectedCategory(initialCategory);
   }, [initialCategory]);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume / 100;
+    }
+  }, [volume]);
+
   const handlePlay = () => {
-    setIsPlaying(!isPlaying);
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
   const handleVolumeChange = (newVolume: number) => {
     setVolume(newVolume);
+  };
+
+  const handleTrackSelect = (track: Track) => {
+    if (audioRef.current) {
+      audioRef.current.src = track.src;
+      audioRef.current.play();
+      setIsPlaying(true);
+      setCurrentTrack(track);
+    }
   };
 
   const currentTracks = playlistData[selectedCategory][selectedGenre];
@@ -58,18 +102,27 @@ const WorksModal: React.FC<WorksModalProps> = ({
         }`}
         onClick={(e) => e.stopPropagation()}
       >
+        <audio
+          ref={audioRef}
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedMetadata={handleLoadedMetadata}
+        />
         <div className="flex flex-col md:flex-row gap-10">
           {/* Левая часть: текст и треки */}
           <div className="flex-1 flex flex-col justify-between">
             <div>
               <div className="text-sm text-[#047cb9] mb-2">Our New Album</div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
-                Till The Wheels
+                {currentTrack?.title || 'Till The Wheels'}
                 <br />
                 Fall Off
               </h1>
               <div className="text-gray-300 mb-6">ft. Lil Durk, Capella Grey</div>
-              <ProgressBar currentTime="1:15" totalTime="2:34" progress={50} />
+              <ProgressBar
+                currentTime={formatTime(currentTime)}
+                totalTime={formatTime(duration)}
+                progress={(currentTime / duration) * 100 || 0}
+              />
             </div>
             <div className="space-y-6">
               <PlaylistTabs
@@ -78,7 +131,11 @@ const WorksModal: React.FC<WorksModalProps> = ({
                 onCategoryChange={setSelectedCategory}
                 onGenreChange={setSelectedGenre}
               />
-              <TrackList tracks={currentTracks} />
+              <TrackList
+                tracks={currentTracks}
+                onTrackSelect={handleTrackSelect}
+                currentTrack={currentTrack || undefined}
+              />
             </div>
           </div>
           {/* Правая часть: обложка и контролы */}
