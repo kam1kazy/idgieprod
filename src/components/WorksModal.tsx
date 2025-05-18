@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TrackList from './Player/TrackList';
 import ProgressBar from './Player/ProgressBar';
 import PlayerControls from './Player/PlayerControls';
@@ -15,13 +15,23 @@ const genreToImage: Record<Genre, string> = {
 interface WorksModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialCategory?: Category;
 }
 
-const WorksModal: React.FC<WorksModalProps> = ({ isOpen, onClose }) => {
+const WorksModal: React.FC<WorksModalProps> = ({
+  isOpen,
+  onClose,
+  initialCategory = 'Песни под ключ',
+}) => {
   const [volume, setVolume] = useState(66);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<Category>('Песни под ключ');
+  const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
+
+  useEffect(() => {
+    console.log('WorksModal: Получена новая категория:', initialCategory);
+    setSelectedCategory(initialCategory);
+  }, [initialCategory]);
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);

@@ -6,6 +6,7 @@ import Header from './Header';
 import HeroContent from './HeroContent';
 import ToolsPanel from './ToolsPanel';
 import WorksModal from './WorksModal';
+import { Category } from '@/types/playlist';
 
 const TOOLS = [
   { label: 'Ableton Link', icon: 'images/tools/abletonlink.svg' },
@@ -17,8 +18,11 @@ const TOOLS = [
 
 const Hero: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<Category>('Песни под ключ');
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (category: Category) => {
+    console.log('Hero: Получена категория:', category);
+    setSelectedCategory(category);
     setIsModalOpen(true);
   };
 
@@ -38,7 +42,11 @@ const Hero: React.FC = () => {
       <HeroContent onOpenModal={handleOpenModal} isModalOpen={isModalOpen} />
       <ToolsPanel tools={TOOLS} />
 
-      <WorksModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <WorksModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        initialCategory={selectedCategory}
+      />
     </section>
   );
 };

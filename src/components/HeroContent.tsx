@@ -1,30 +1,36 @@
 import React from 'react';
 import ServiceButton from './ServiceButton';
+import { Category } from '@/types/playlist';
 
 interface HeroContentProps {
-  onOpenModal: () => void;
+  onOpenModal: (category: Category) => void;
   isModalOpen: boolean;
 }
 
 const services = [
   {
-    title: 'Песни под ключ',
+    title: 'Песни под ключ' as Category,
     description:
       'Создаем уникальные треки в любом жанре — от текста до готового звучания, точно под ваш вкус.',
   },
   {
-    title: 'Аранжировка',
+    title: 'Аранжировка' as Category,
     description:
       'Профессиональная обработка звука для чистоты, глубины и мощного звучания на любой технике.',
   },
   {
-    title: 'Сведение-мастеринг',
+    title: 'Сведение-мастеринг' as Category,
     description:
       'Продуманная музыкальная база, которая сделает вашу песню живой, яркой и запоминающейся.',
   },
 ];
 
 const HeroContent: React.FC<HeroContentProps> = ({ onOpenModal, isModalOpen }) => {
+  const handleServiceClick = (category: Category) => {
+    console.log('HeroContent: Выбрана категория:', category);
+    onOpenModal(category);
+  };
+
   return (
     <div
       className={`flex-1 flex flex-col justify-end mb-[5rem] items-center z-1 ${
@@ -40,7 +46,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ onOpenModal, isModalOpen }) =
             key={service.title}
             title={service.title}
             description={service.description}
-            onClick={onOpenModal}
+            onClick={() => handleServiceClick(service.title)}
           />
         ))}
       </div>
