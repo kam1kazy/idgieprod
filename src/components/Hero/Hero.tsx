@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Header from './Header';
 import HeroContent from './HeroContent';
 import ToolsPanel from './ToolsPanel';
 import { Category } from '@/types/playlist';
@@ -11,9 +10,8 @@ interface IProps {
 
 const Hero: React.FC<IProps> = ({ handleOpenModal, isModalOpen }: IProps) => {
   return (
-    <section className="relative min-h-screen flex flex-col bg-black justify-between text-white overflow-hidden">
-      <Header />
-      <div className="w-[81.25rem] mr-auto ml-auto z-[1]">
+    <section className="relative min-h-screen flex flex-col justify-between text-white overflow-hidden">
+      <div className="w-[81.25rem] mr-auto ml-auto mt-auto mt-[3.75rem] z-[1]">
         <HeroContent onOpenModal={handleOpenModal} isModalOpen={isModalOpen} />
         <ToolsPanel />
       </div>

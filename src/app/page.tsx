@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import About from '@/components/About/About';
 import Hero from '@/components/Hero/Hero';
+import WorksModal from '@/components/Player/WorksModal';
+import Header from '@/components/Header/Header';
 import { Category } from '@/types/playlist';
-import WorksModal from '@/components/Hero/WorksModal';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <WorksModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
