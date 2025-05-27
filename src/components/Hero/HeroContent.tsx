@@ -26,7 +26,6 @@ const services = [
 
 const HeroContent: React.FC<HeroContentProps> = ({ onOpenModal, isModalOpen }) => {
   const handleServiceClick = (category: Category) => {
-    console.log('HeroContent: Выбрана категория:', category);
     onOpenModal(category);
   };
 

@@ -34,7 +34,6 @@ const WorksModal: React.FC<WorksModalProps> = ({
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    console.log('WorksModal: Получена новая категория:', initialCategory);
     setSelectedCategory(initialCategory);
   }, [initialCategory]);
 

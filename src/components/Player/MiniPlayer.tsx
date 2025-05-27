@@ -27,7 +27,7 @@ const MiniPlayer: React.FC<MiniPlayerProps> = ({ isVisible, onStop }) => {
 
   return (
     <div
-      className={`absolute top-4 right-[auto] left-[auto] w-[80%] z-[1000] ${isAnimating ? 'animate-fade-in' : 'animate-fade-out'}`}
+      className={`absolute z-[2] top-4 right-[auto] left-[auto] w-[80%] z-[1000] ${isAnimating ? 'animate-fade-in' : 'animate-fade-out'}`}
     >
       <button
         onClick={onStop}
