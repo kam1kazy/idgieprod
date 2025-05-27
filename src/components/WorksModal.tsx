@@ -120,7 +120,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
         onClick={onClose}
       >
         <div
-          className={`relative m-4 w-full h-[80%] max-w-[70%] max-h-[70%] rounded-3xl p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
+          className={`relative m-4 w-full h-[80%] md:max-w-[55%] sm:max-w-[90%]  max-h-[70%] rounded-3xl p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
             isOpen
               ? 'opacity-100 translate-y-0 scale-100'
               : 'opacity-0 -translate-y-28 scale-90 pointer-events-none'

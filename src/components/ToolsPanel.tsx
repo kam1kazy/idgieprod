@@ -12,7 +12,7 @@ interface ToolsPanelProps {
 
 const ToolsPanel: React.FC<ToolsPanelProps> = ({ tools }) => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 pb-10 z-1">
+    <div className="flex flex-wrap justify-center gap-4 pb-24 z-1">
       {tools.map(({ label, icon }) => (
         <button
           key={label}

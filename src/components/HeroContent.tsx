@@ -9,7 +9,7 @@ interface HeroContentProps {
 
 const services = [
   {
-    title: 'Песни под ключ' as Category,
+    title: 'ПЕСНИ ПОД КЛЮЧ' as Category,
     description:
       'Создаем уникальные треки в любом жанре — от текста до готового звучания, точно под ваш вкус.',
   },
@@ -38,7 +38,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ onOpenModal, isModalOpen }) =
       }`}
     >
       <h1 className="text-[14.4rem] md:text-[14.4rem] font-bold mb-8 text-center">
-        IDGE.Prod<sup className="text-[8rem] font-normal align-super">®</sup>
+        IDGIE.Prod<sup className="text-[8rem] font-normal align-super">®</sup>
       </h1>
       <div className="flex flex-col md:flex-row gap-8 justify-center items-center mb-12">
         {services.map((service) => (

@@ -15,11 +15,6 @@ export const playlistData: Record<Category, Record<Genre, Track[]>> = {
         duration: '3:45',
         src: '/music/mix/pop/summer-vibes.mp3',
       },
-      {
-        title: 'Midnight Dreams',
-        duration: '4:20',
-        src: '/music/mix/pop/midnight-dreams.mp3',
-      },
     ],
     'HIP-HOP': [
       {
@@ -27,22 +22,12 @@ export const playlistData: Record<Category, Record<Genre, Track[]>> = {
         duration: '3:15',
         src: '/music/mix/hiphop/street-life.mp3',
       },
-      {
-        title: 'Urban Flow',
-        duration: '4:05',
-        src: '/music/mix/hiphop/urban-flow.mp3',
-      },
     ],
     ROCK: [
       {
         title: 'Electric Storm',
         duration: '5:10',
         src: '/music/mix/rock/electric-storm.mp3',
-      },
-      {
-        title: 'Mountain High',
-        duration: '4:45',
-        src: '/music/mix/rock/mountain-high.mp3',
       },
     ],
   },
