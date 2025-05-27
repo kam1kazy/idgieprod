@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useVolumeDrag = (onVolumeChange: (volume: number) => void) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -18,7 +18,9 @@ export const useVolumeDrag = (onVolumeChange: (volume: number) => void) => {
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) return;
+    if (!isDragging) {
+      return;
+    }
 
     const volumeElement = document.querySelector('.volume-slider') as HTMLDivElement;
     if (volumeElement) {

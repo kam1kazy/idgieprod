@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
 import { Track } from '@/components/Player/songlist';
 
 export const useAudioPlayer = (initialVolume: number) => {

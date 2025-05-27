@@ -1,7 +1,9 @@
 import Image from 'next/image';
+
+import { Category } from '@/components/Player/songlist';
+
 import HeroContent from './HeroContent';
 import ToolsPanel from './ToolsPanel';
-import { Category } from '@/components/Player/songlist';
 
 interface IProps {
   handleOpenModal: (category: Category) => void;

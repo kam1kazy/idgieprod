@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useProgressDrag = (onSeek: (progress: number) => void) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -19,7 +19,9 @@ export const useProgressDrag = (onSeek: (progress: number) => void) => {
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging || !progressRef.current) return;
+    if (!isDragging || !progressRef.current) {
+      return;
+    }
     const newProgress = calculateTime(e.clientX, progressRef.current);
     onSeek(newProgress);
   };

@@ -4,7 +4,9 @@ interface IProps {
 }
 
 export const updatePosition = ({ sectionRef, titleRef }: IProps) => {
-  if (!sectionRef.current || !titleRef.current) return;
+  if (!sectionRef.current || !titleRef.current) {
+    return;
+  }
 
   const section = sectionRef.current;
   const title = titleRef.current;

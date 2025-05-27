@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+
 import About from '@/components/About/About';
-import Hero from '@/components/Hero/Hero';
-import WorksModal from '@/components/Player/WorksModal';
-import Header from '@/components/Header/Header';
-import { Category } from '@/components/Player/songlist';
-import Portfolio from '@/components/Portfolio/Portfolio';
-import Gallery from '@/components/Gallery/Gallery';
 import Footer from '@/components/Footer/Footer';
+import Gallery from '@/components/Gallery/Gallery';
+import Header from '@/components/Header/Header';
+import Hero from '@/components/Hero/Hero';
+import { Category } from '@/components/Player/songlist';
+import WorksModal from '@/components/Player/WorksModal';
+import Portfolio from '@/components/Portfolio/Portfolio';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);

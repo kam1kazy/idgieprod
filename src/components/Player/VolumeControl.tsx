@@ -1,7 +1,8 @@
 import Image from 'next/image';
+
+import { useVolumeDrag } from './hooks/useVolumeDrag';
 import { useVolumeIcon } from './hooks/useVolumeIcon';
 import { useVolumeState } from './hooks/useVolumeState';
-import { useVolumeDrag } from './hooks/useVolumeDrag';
 
 interface VolumeControlProps {
   volume: number;

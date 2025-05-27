@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 interface MiniPlayerProps {
   isVisible: boolean;
@@ -23,7 +23,9 @@ const MiniPlayer: React.FC<MiniPlayerProps> = ({ isVisible, onStop }) => {
     }
   }, [isVisible]);
 
-  if (!shouldRender) return null;
+  if (!shouldRender) {
+    return null;
+  }
 
   return (
     <div

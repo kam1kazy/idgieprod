@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import AboutContent from './AboutTabs';
 import { useEffect, useRef } from 'react';
+
+import AboutContent from './AboutTabs';
 import { updatePosition } from './hooks/updatePosition';
 
 const styles = {

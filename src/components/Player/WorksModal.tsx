@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
-import ProgressBar from './ProgressBar';
-import PlayerControls from './PlayerControls';
-import VolumeControl from './VolumeControl';
-import Playlist from './Playlist';
-import MiniPlayer from './MiniPlayer';
+import { useEffect, useState } from 'react';
+
 import { Category, Genre, playlistData } from '@/components/Player/songlist';
+
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTimeFormat } from './hooks/useTimeFormat';
+import MiniPlayer from './MiniPlayer';
+import PlayerControls from './PlayerControls';
+import Playlist from './Playlist';
+import ProgressBar from './ProgressBar';
+import VolumeControl from './VolumeControl';
 
 const genreToImage: Record<Genre, string> = {
   POP: '/images/genres/pop.png',

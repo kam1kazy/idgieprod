@@ -1,6 +1,7 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
+
 import { ntSomic, ntSomicVariable } from './fonts';
 
 export const metadata: Metadata = {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { images } from './GalleryList';
+
 import type { Image } from './GalleryList';
+import { images } from './GalleryList';
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<Image | null>(null);

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import ContactsModal from './ContactsModal';
 
 const Header: React.FC = () => {

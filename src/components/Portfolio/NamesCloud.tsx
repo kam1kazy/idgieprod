@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { artists } from './NamesCloudList';
+
 import type { Artist } from './NamesCloudList';
+import { artists } from './NamesCloudList';
 
 const NamesCloud = () => {
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(artists[0]);

@@ -76,9 +76,8 @@ const eslintConfig = defineConfig([
       '@typescript-eslint/no-explicit-any': 'warn',
       'prettier/prettier': [
         'error',
-        {},
-        { usePrettierrc: true },
         {
+          usePrettierrc: true,
           endOfLine: 'auto',
         },
       ],

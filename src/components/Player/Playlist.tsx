@@ -1,6 +1,7 @@
+import { Category, Genre, Track } from '@/components/Player/songlist';
+
 import PlaylistTabs from './PlaylistTabs';
 import TrackList from './TrackList';
-import { Category, Genre, Track } from '@/components/Player/songlist';
 
 interface PlaylistProps {
   selectedCategory: Category;
