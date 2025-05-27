@@ -8,6 +8,7 @@ import Header from '@/components/Header/Header';
 import { Category } from '@/components/Player/songlist';
 import Portfolio from '@/components/Portfolio/Portfolio';
 import Gallery from '@/components/Gallery/Gallery';
+import Footer from '@/components/Footer/Footer';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,6 +35,7 @@ export default function Home() {
       <About />
       <Portfolio />
       <Gallery />
+      <Footer />
     </>
   );
 }
