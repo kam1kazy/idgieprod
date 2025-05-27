@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import ProgressBar from './ProgressBar';
 import PlayerControls from './PlayerControls';
 import VolumeControl from './VolumeControl';
 import Playlist from './Playlist';
 import MiniPlayer from './MiniPlayer';
-import { Category, Genre, playlistData, Track } from '@/types/playlist';
+import { Category, Genre, playlistData } from '@/types/playlist';
+import { useAudioPlayer } from './hooks/useAudioPlayer';
+import { useTimeFormat } from './hooks/useTimeFormat';
 
 const genreToImage: Record<Genre, string> = {
   POP: '/images/genres/pop.png',
@@ -23,89 +25,38 @@ const WorksModal: React.FC<WorksModalProps> = ({
   onClose,
   initialCategory = 'Песни под ключ',
 }) => {
-  const [volume, setVolume] = useState(66);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
-  const [showMiniPlayer, setShowMiniPlayer] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const {
+    audioRef,
+    isPlaying,
+    currentTime,
+    duration,
+    currentTrack,
+    volume,
+    showMiniPlayer,
+    setShowMiniPlayer,
+    handlePlay,
+    handleTimeUpdate,
+    handleLoadedMetadata,
+    handleTrackSelect,
+    handleSeek,
+    handleStop,
+    handleVolumeChange,
+  } = useAudioPlayer(66);
+
+  const { formatTime } = useTimeFormat();
 
   useEffect(() => {
     setSelectedCategory(initialCategory);
   }, [initialCategory]);
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume / 100;
-    }
-  }, [volume]);
-
-  useEffect(() => {
     if (!isOpen && isPlaying) {
       setShowMiniPlayer(true);
     }
-  }, [isOpen, isPlaying]);
-
-  const handlePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
-    }
-  };
-
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-  };
-
-  const handleVolumeChange = (newVolume: number) => {
-    setVolume(newVolume);
-  };
-
-  const handleTrackSelect = (track: Track) => {
-    if (audioRef.current) {
-      audioRef.current.src = track.src;
-      audioRef.current.play();
-      setIsPlaying(true);
-      setCurrentTrack(track);
-    }
-  };
-
-  const handleSeek = (progress: number) => {
-    if (audioRef.current) {
-      const newTime = (progress / 100) * duration;
-      audioRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
-    }
-  };
-
-  const handleStop = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-      setShowMiniPlayer(false);
-    }
-  };
+  }, [isOpen, isPlaying, setShowMiniPlayer]);
 
   const currentTracks = playlistData[selectedCategory][selectedGenre];
 
