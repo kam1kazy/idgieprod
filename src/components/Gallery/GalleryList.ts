@@ -1,4 +1,4 @@
-export interface Image {
+export interface ImageList {
   id: number;
   src: string;
   alt: string;
@@ -6,7 +6,7 @@ export interface Image {
 }
 
 // Здесь вы можете добавить свои фотографии
-export const images: Image[] = [
+export const imagesList: ImageList[] = [
   {
     id: 1,
     src: '/path-to-your-image1.jpg',

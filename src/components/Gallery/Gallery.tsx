@@ -1,12 +1,13 @@
+import Image from 'next/image';
 import { useState } from 'react';
 
-import type { Image } from './GalleryList';
-import { images } from './GalleryList';
+import type { ImageList } from './GalleryList';
+import { imagesList } from './GalleryList';
 
 const Gallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
+  const [selectedImage, setSelectedImage] = useState<ImageList | null>(null);
 
-  const handleImageClick = (image: Image): void => {
+  const handleImageClick = (image: ImageList): void => {
     setSelectedImage(image);
   };
 
@@ -19,13 +20,19 @@ const Gallery: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center text-white mb-10">Галерея</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.map((image) => (
+          {imagesList.map((image) => (
             <div
               key={image.id}
               className="relative overflow-hidden rounded-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 group"
               onClick={() => handleImageClick(image)}
             >
-              <img src={image.src} alt={image.alt} className="w-full h-[300px] object-cover" />
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={800}
+                height={600}
+                className="w-full h-[300px] object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <p className="text-white text-lg">{image.description}</p>
               </div>
@@ -46,9 +53,11 @@ const Gallery: React.FC = () => {
             >
               &times;
             </button>
-            <img
+            <Image
               src={selectedImage.src}
               alt={selectedImage.alt}
+              width={1200}
+              height={800}
               className="max-h-[80vh] w-full object-contain"
             />
             <p className="text-white text-center mt-6 text-xl">{selectedImage.description}</p>

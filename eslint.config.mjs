@@ -31,6 +31,7 @@ const eslintConfig = defineConfig([
       'eslint.config.mjs',
       '**/__tests__/**',
       '**/*.test.*',
+      '.next/**',
     ],
   },
   {

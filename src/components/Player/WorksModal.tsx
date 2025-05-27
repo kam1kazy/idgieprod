@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { Category, Genre, playlistData } from '@/components/Player/songlist';
@@ -114,9 +115,11 @@ const WorksModal: React.FC<WorksModalProps> = ({
             </div>
             {/* Правая часть: обложка и контролы */}
             <div className="flex flex-col items-center justify-center gap-8">
-              <img
+              <Image
                 src={genreToImage[selectedGenre]}
                 alt="Album Cover"
+                width={192}
+                height={192}
                 className="w-48 h-48 rounded-xl object-cover shadow-lg mb-4"
               />
               <PlayerControls onPlay={handlePlay} isPlaying={isPlaying} />

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 
 import type { Artist } from './NamesCloudList';
@@ -55,9 +56,11 @@ const NamesCloud = () => {
           {displayArtist ? (
             <div className="bg-gray-800 rounded-xl p-6 transition-all duration-300 h-full">
               <div className="flex gap-6">
-                <img
+                <Image
                   src={displayArtist.avatar}
                   alt={displayArtist.name}
+                  width={128}
+                  height={128}
                   className="w-32 h-32 rounded-lg object-cover"
                 />
                 <div>
@@ -86,25 +89,27 @@ const NamesCloud = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
+      <style>
+        {`
+          .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+          }
 
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #1f2937;
-          border-radius: 3px;
-        }
+          .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937;
+            border-radius: 3px;
+          }
 
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #4b5563;
-          border-radius: 3px;
-        }
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 3px;
+          }
 
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #6b7280;
-        }
-      `}</style>
+          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+          }
+        `}
+      </style>
     </div>
   );
 };

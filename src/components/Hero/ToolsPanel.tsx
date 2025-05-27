@@ -5,7 +5,7 @@ interface Tool {
   icon: string;
 }
 
-const TOOLS = [
+const TOOLS: Tool[] = [
   { label: 'Universal Audio', icon: 'images/tools/uad.svg' },
   { label: 'Cubase', icon: 'images/tools/cubase.svg' },
   { label: 'Ableton Link', icon: 'images/tools/abletonlink.svg' },

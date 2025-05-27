@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useVolumeDrag = (onVolumeChange: (volume: number) => void) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -17,17 +17,20 @@ export const useVolumeDrag = (onVolumeChange: (volume: number) => void) => {
     onVolumeChange(newVolume);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) {
-      return;
-    }
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!isDragging) {
+        return;
+      }
 
-    const volumeElement = document.querySelector('.volume-slider') as HTMLDivElement;
-    if (volumeElement) {
-      const newVolume = calculateVolume(e.clientY, volumeElement);
-      onVolumeChange(newVolume);
-    }
-  };
+      const volumeElement = document.querySelector('.volume-slider') as HTMLDivElement;
+      if (volumeElement) {
+        const newVolume = calculateVolume(e.clientY, volumeElement);
+        onVolumeChange(newVolume);
+      }
+    },
+    [isDragging, onVolumeChange]
+  );
 
   const handleMouseUp = () => {
     setIsDragging(false);
@@ -43,7 +46,7 @@ export const useVolumeDrag = (onVolumeChange: (volume: number) => void) => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove]);
 
   return { handleMouseDown };
 };

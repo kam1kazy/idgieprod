@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const useProgressDrag = (onSeek: (progress: number) => void) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -18,13 +18,16 @@ export const useProgressDrag = (onSeek: (progress: number) => void) => {
     onSeek(newProgress);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging || !progressRef.current) {
-      return;
-    }
-    const newProgress = calculateTime(e.clientX, progressRef.current);
-    onSeek(newProgress);
-  };
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!isDragging || !progressRef.current) {
+        return;
+      }
+      const newProgress = calculateTime(e.clientX, progressRef.current);
+      onSeek(newProgress);
+    },
+    [isDragging, onSeek]
+  );
 
   const handleMouseUp = () => {
     setIsDragging(false);
@@ -40,7 +43,7 @@ export const useProgressDrag = (onSeek: (progress: number) => void) => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove]);
 
   return { progressRef, handleMouseDown };
 };

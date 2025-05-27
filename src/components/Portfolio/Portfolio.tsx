@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 
 import { Genre } from '@/components/Player/songlist';
@@ -35,10 +36,8 @@ const portfolioCards: PortfolioCard[] = [
 
 const Portfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
 
-  const handleCardClick = (genre: Genre) => {
-    setSelectedGenre(genre);
+  const handleCardClick = (_genre: Genre) => {
     setIsModalOpen(true);
   };
 
@@ -64,7 +63,13 @@ const Portfolio = () => {
               onClick={() => handleCardClick(card.genre)}
             >
               <div className="bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
-                <img src={card.image} alt={card.title} className="w-full h-64 object-cover" />
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={800}
+                  height={600}
+                  className="w-full h-64 object-cover"
+                />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-white mb-3">{card.title}</h3>
                   <p className="text-gray-400 text-lg">{card.description}</p>
