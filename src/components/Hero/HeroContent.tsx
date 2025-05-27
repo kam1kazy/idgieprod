@@ -1,5 +1,5 @@
 import ServiceButton from './ServiceButton';
-import { Category } from '@/types/playlist';
+import { Category } from '@/components/Player/songlist';
 
 interface HeroContentProps {
   onOpenModal: (category: Category) => void;

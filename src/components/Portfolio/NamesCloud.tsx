@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Artist, artists } from './NamesCloudList';
+import { artists } from './NamesCloudList';
+import type { Artist } from './NamesCloudList';
 
 const NamesCloud = () => {
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(artists[0]);
@@ -23,8 +24,8 @@ const NamesCloud = () => {
   const displayArtist = selectedArtist || hoveredArtist;
 
   return (
-    <div className="w-full min-h-[700px] relative">
-      <div className="flex gap-8">
+    <div className="w-full h-[700px] relative flex items-center">
+      <div className="flex gap-8 w-full">
         {/* Список артистов слева */}
         <div className="w-1/3 max-h-[500px] overflow-y-auto custom-scrollbar">
           <div className="space-y-2 pr-4">

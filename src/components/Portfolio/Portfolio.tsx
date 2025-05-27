@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import WorksModal from '../Player/WorksModal';
-import { Genre } from '@/types/playlist';
+import { Genre } from '@/components/Player/songlist';
 import NamesCloud from './NamesCloud';
 
 interface PortfolioCard {

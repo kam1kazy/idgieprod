@@ -4,7 +4,7 @@ import PlayerControls from './PlayerControls';
 import VolumeControl from './VolumeControl';
 import Playlist from './Playlist';
 import MiniPlayer from './MiniPlayer';
-import { Category, Genre, playlistData } from '@/types/playlist';
+import { Category, Genre, playlistData } from '@/components/Player/songlist';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTimeFormat } from './hooks/useTimeFormat';
 
