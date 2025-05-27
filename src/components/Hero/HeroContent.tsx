@@ -1,4 +1,3 @@
-import React from 'react';
 import ServiceButton from './ServiceButton';
 import { Category } from '@/types/playlist';
 

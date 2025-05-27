@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from './Header';
 import HeroContent from './HeroContent';
 import ToolsPanel from './ToolsPanel';

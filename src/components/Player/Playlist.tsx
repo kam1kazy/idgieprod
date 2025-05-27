@@ -1,4 +1,3 @@
-import React from 'react';
 import PlaylistTabs from './PlaylistTabs';
 import TrackList from './TrackList';
 import { Category, Genre, Track } from '@/types/playlist';

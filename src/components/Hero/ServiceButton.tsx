@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ServiceButtonProps {
   title: string;
   description: string;

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import ProgressBar from './Player/ProgressBar';
-import PlayerControls from './Player/PlayerControls';
-import VolumeControl from './Player/VolumeControl';
-import Playlist from './Player/Playlist';
-import MiniPlayer from './Player/MiniPlayer';
+import { useState, useEffect, useRef } from 'react';
+import ProgressBar from '../Player/ProgressBar';
+import PlayerControls from '../Player/PlayerControls';
+import VolumeControl from '../Player/VolumeControl';
+import Playlist from '../Player/Playlist';
+import MiniPlayer from '../Player/MiniPlayer';
 import { Category, Genre, playlistData, Track } from '@/types/playlist';
 
 const genreToImage: Record<Genre, string> = {
