@@ -8,7 +8,7 @@ interface HeroContentProps {
 
 const services = [
   {
-    title: 'ПЕСНИ ПОД КЛЮЧ' as Category,
+    title: 'Песни под ключ' as Category,
     description:
       'Создаем уникальные треки в любом жанре — от текста до готового звучания, точно под ваш вкус.',
   },

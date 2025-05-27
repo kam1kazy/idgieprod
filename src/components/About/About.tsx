@@ -1,27 +1,60 @@
 import Image from 'next/image';
+import AboutContent from './AboutTabs';
+import { useEffect, useRef } from 'react';
+import { updatePosition } from './hooks/updatePosition';
 
-const Hero: React.FC = () => {
+const styles = {
+  textCenterAfter: `text-[5.875rem] w-auto relative font-bold leading-[8.4625rem] after:content-[''] after:absolute after:top-auto after:bottom-[-1.875rem] after:-left-0 after:w-[4.063rem] after:h-[0.313rem] after:bg-[#87745f]`,
+};
+
+const About: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    let animationFrameId: number;
+
+    const animate = () => {
+      updatePosition({ sectionRef, titleRef });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    // Запускаем анимацию
+    animationFrameId = requestAnimationFrame(animate);
+
+    // Очистка
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative h-[800px] flex flex-col justify-between bg-black text-white overflow-hidden">
-      <div className="w-[81.25rem] mr-auto ml-auto flex-1 flex flex-col mb-[5rem] z-1">
-        <h2 className="text-[5.875rem] font-bold mb-8 w-[300] leading-[6.4625rem] mt-[100px]">
-          Дмитрий Эбергарт
+    <section
+      ref={sectionRef}
+      className="relative h-[58.5rem] flex flex-col justify-between bg-black text-white"
+    >
+      <div className="w-[81.25rem] mr-auto ml-auto flex-row items-start justify-between flex-1 flex flex-col mb-[5rem] z-[1] mt-[4.375rem]">
+        <h2
+          ref={titleRef}
+          className={`${styles.textCenterAfter} will-change-transform`}
+          style={{ transform: 'translateY(0)' }}
+        >
+          Дмитрий <br /> Эбергарт
         </h2>
+        <div className="max-w-[39.5rem]">
+          <AboutContent />
+        </div>
       </div>
 
       {/* Фоновое изображение */}
-      <div className="absolute inset-0 mt-[0] ml-[auto] mr-[auto]">
-        <Image
-          src="/images/person.png"
-          alt="Background"
-          fill
-          className="object-contain max-h-[100%]"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/18" />
+      <div className="absolute inset-0 mt-[0] ml-[auto] mr-[20.875rem]">
+        <Image src="/images/person.png" alt="Background" fill className="object-contain" priority />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
     </section>
   );
 };
 
-export default Hero;
+export default About;

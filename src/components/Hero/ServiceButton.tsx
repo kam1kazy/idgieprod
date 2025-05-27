@@ -14,7 +14,7 @@ const ServiceButton: React.FC<ServiceButtonProps> = ({ title, description, onCli
       onClick={onClick}
       className={`max-w-sm group cursor-pointer transition-transform relative hover:scale-105 ${styles.textCenterAfter}`}
     >
-      <div className="text-lg font-semibold mb-2 group-hover:text-[#87745f] transition-colors">
+      <div className="text-lg uppercase font-semibold mb-2 group-hover:text-[#87745f] transition-colors">
         {title}
       </div>
       <div className="text-sm text-gray-300">{description}</div>
