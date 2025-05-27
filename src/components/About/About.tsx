@@ -1,11 +1,6 @@
-'use client';
-
 import Image from 'next/image';
-import { useState } from 'react';
 
 const Hero: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <section className="relative h-[800px] flex flex-col justify-between bg-black text-white overflow-hidden">
       <div className="w-[81.25rem] mr-auto ml-auto flex-1 flex flex-col mb-[5rem] z-1">
