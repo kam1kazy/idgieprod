@@ -6,6 +6,7 @@ import Hero from '@/components/Hero/Hero';
 import WorksModal from '@/components/Player/WorksModal';
 import Header from '@/components/Header/Header';
 import { Category } from '@/types/playlist';
+import Portfolio from '@/components/Portfolio/Portfolio';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,6 +31,7 @@ export default function Home() {
       />
       <Hero handleOpenModal={handleOpenModal} isModalOpen={isModalOpen} />
       <About />
+      <Portfolio />
     </>
   );
 }

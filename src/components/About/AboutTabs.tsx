@@ -33,8 +33,10 @@ const AboutTabs: React.FC = () => {
           }>
         ).map((item, index) => (
           <div key={index} className="mb-4">
-            <h3 className="text-[1.463rem] leading-[2.813rem] font-medium">{item.title}</h3>
-            <p className="text-[1.25rem] leading-[2rem] text-gray-400">{item.description}</p>
+            <h3 className="text-[1.363rem] leading-[2.813rem] font-medium">{item.title}</h3>
+            <p className="text-[1.09rem] leading-[2rem] text-gray-400 max-w-[32.125rem] ml-[auto]">
+              {item.description}
+            </p>
           </div>
         ))}
       </div>
