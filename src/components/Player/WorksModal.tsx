@@ -6,10 +6,10 @@ import { Category, Genre, playlistData } from '@/components/Player/songlist';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTimeFormat } from './hooks/useTimeFormat';
 import MiniPlayer from './MiniPlayer';
-import PlayerControls from './PlayerControls';
-import Playlist from './Playlist';
-import ProgressBar from './ProgressBar';
-import VolumeControl from './VolumeControl';
+import PlayerControls from './ui/PlayerControls';
+import Playlist from './ui/Playlist';
+import ProgressBar from './ui/ProgressBar';
+import VolumeControl from './ui/VolumeControl';
 
 const genreToImage: Record<Genre, string> = {
   POP: '/images/genres/pop.png',

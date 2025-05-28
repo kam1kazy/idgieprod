@@ -1,4 +1,4 @@
-import { useProgressDrag } from './hooks/useProgressDrag';
+import { useProgressDrag } from '../hooks/useProgressDrag';
 
 interface ProgressBarProps {
   currentTime: string;

@@ -1,38 +1,10 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { Genre } from '@/components/Player/songlist';
-
+import { Genre } from '../Player/songlist';
 import WorksModal from '../Player/WorksModal';
 import NamesCloud from './NamesCloud';
-
-interface PortfolioCard {
-  genre: Genre;
-  title: string;
-  description: string;
-  image: string;
-}
-
-const portfolioCards: PortfolioCard[] = [
-  {
-    genre: 'HIP-HOP',
-    title: 'Хип-Хоп',
-    description: 'Современные биты и продакшн',
-    image: '/images/genres/hip-hop.png',
-  },
-  {
-    genre: 'POP',
-    title: 'Поп',
-    description: 'Поп-музыка и аранжировки',
-    image: '/images/genres/pop.png',
-  },
-  {
-    genre: 'ROCK',
-    title: 'Рок',
-    description: 'Рок-музыка и гитарные партии',
-    image: '/images/genres/rock.png',
-  },
-];
+import { portfolioCards } from './PortfolioList';
 
 const Portfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
