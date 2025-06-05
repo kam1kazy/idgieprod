@@ -1,47 +1,12 @@
 import Image from 'next/image';
-import { useState } from 'react';
+
+import { useNamesCloud } from './hooks/useNamesCloud';
 
 // import type { Artist } from './NamesCloudList';
-import { artists } from './NamesCloudList';
+// import { artists } from './NamesCloudList';
 
 const NamesCloud = () => {
-  const itemsPerPage = 3; // Примерное количество видимых элементов
-  const transitionItems = itemsPerPage; // Количество элементов для плавного перехода с каждого конца
-
-  // Создаем массив для бесшовной карусели, дублируя элементы
-  const loopedArtists = [
-    ...artists.slice(-transitionItems),
-    ...artists,
-    ...artists.slice(0, transitionItems),
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(transitionItems); // Начинаем с первого реального элемента
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prevSlide) => {
-      const newSlide = prevSlide - 1;
-      // Если перешли на дублированные элементы в начале, мгновенно перепрыгиваем в конец реальных элементов
-      if (newSlide < transitionItems) {
-        // Используем setTimeout с 0ms задержкой, чтобы дать CSS-переходу завершиться визуально перед сбросом позиции
-        setTimeout(() => setCurrentSlide(artists.length + transitionItems - 1), 0);
-      }
-      return newSlide;
-    });
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) => {
-      const newSlide = prevSlide + 1;
-      // Если перешли на дублированные элементы в конце, мгновенно перепрыгиваем в начало реальных элементов
-      if (newSlide >= artists.length + transitionItems) {
-        // Используем setTimeout с 0ms задержкой для сброса позиции после визуального перехода
-        setTimeout(() => setCurrentSlide(transitionItems), 0);
-      }
-      return newSlide;
-    });
-  };
-
-  // const displayArtist = selectedArtist || hoveredArtist;
+  const { currentSlide, loopedArtists, handlePrevSlide, handleNextSlide } = useNamesCloud();
 
   return (
     <section className="w-full mb-[6rem] mt-[8rem]">

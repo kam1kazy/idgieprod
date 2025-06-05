@@ -1,6 +1,6 @@
 import { Category } from '@/components/Player/songlist';
 
-import { services } from './ContentList';
+import { services } from './content/ContentList';
 import ServiceButton from './ServiceButton';
 
 interface HeroContentProps {

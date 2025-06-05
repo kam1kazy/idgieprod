@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 
-// import About from '@/components/About/About';
-// import AboutJournal from '@/components/About/AboutJournal';
-import AboutJournalWithImage from '@/components/About/AboutJournalWithImage';
+import About from '@/components/About/About';
 import Footer from '@/components/Footer/Footer';
 import Gallery from '@/components/Gallery/Gallery';
 import Header from '@/components/Header/Header';
@@ -36,9 +34,7 @@ export default function Home() {
         initialCategory={selectedCategory}
       />
       <Hero handleOpenModal={handleOpenModal} isModalOpen={isModalOpen} />
-      <AboutJournalWithImage />
-      {/* <AboutJournal /> */}
-      {/* <About /> */}
+      <About />
       <Portfolio />
       <NamesCloud />
       <Gallery />

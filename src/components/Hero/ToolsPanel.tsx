@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { TOOLS } from './ToolsList';
+import { TOOLS } from './content/ToolsList';
 
 const ToolsPanel: React.FC = () => {
   return (

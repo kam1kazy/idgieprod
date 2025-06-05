@@ -9,7 +9,7 @@ import PlayerControls from '../Player/ui/PlayerControls';
 import Playlist from '../Player/ui/Playlist';
 import ProgressBar from '../Player/ui/ProgressBar';
 import VolumeControl from '../Player/ui/VolumeControl';
-import { portfolioCards } from './PortfolioList';
+import { portfolioCards } from './content/PortfolioList';
 
 const genreToImage: Record<Genre, string> = {
   POP: '/images/genres/pop.png',
