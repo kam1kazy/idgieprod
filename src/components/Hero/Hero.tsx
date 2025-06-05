@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Category } from '@/components/Player/songlist';
 
 import HeroContent from './HeroContent';
-import ToolsPanel from './ToolsPanel';
 
 interface IProps {
   handleOpenModal: (category: Category) => void;
@@ -15,7 +14,6 @@ const Hero: React.FC<IProps> = ({ handleOpenModal, isModalOpen }: IProps) => {
     <section className="relative min-h-screen flex flex-col justify-between text-white overflow-hidden">
       <div className="w-[81.25rem] mr-auto ml-auto mt-auto mb-[3.75rem] z-[1]">
         <HeroContent onOpenModal={handleOpenModal} isModalOpen={isModalOpen} />
-        <ToolsPanel />
       </div>
 
       {/* Фоновое изображение */}

@@ -17,7 +17,7 @@ const ServiceButton: React.FC<ServiceButtonProps> = ({ title, description, onCli
       <div className="text-lg uppercase font-semibold mb-2 group-hover:text-[#87745f] transition-colors">
         {title}
       </div>
-      <div className="text-sm text-gray-300">{description}</div>
+      <div className="text-sm text-gray-300 h-[2.5rem]">{description}</div>
     </button>
   );
 };

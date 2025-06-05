@@ -9,37 +9,37 @@ export interface ImageList {
 export const imagesList: ImageList[] = [
   {
     id: 1,
-    src: '/path-to-your-image1.jpg',
+    src: '/images/gallery/gallery-1.jpg',
     alt: 'Работа в студии',
     description: 'Работа над новым треком',
   },
   {
     id: 2,
-    src: '/path-to-your-image2.jpg',
+    src: '/images/gallery/gallery-2.jpg',
     alt: 'Концертное выступление',
     description: 'Живое выступление',
   },
   {
     id: 3,
-    src: '/path-to-your-image2.jpg',
+    src: '/images/gallery/gallery-3.jpg',
     alt: 'Концертное выступление',
     description: 'Живое выступление',
   },
   {
     id: 4,
-    src: '/path-to-your-image2.jpg',
+    src: '/images/gallery/gallery-4.jpg',
     alt: 'Концертное выступление',
     description: 'Живое выступление',
   },
   {
     id: 5,
-    src: '/path-to-your-image2.jpg',
+    src: '/images/gallery/gallery-5.jpg',
     alt: 'Концертное выступление',
     description: 'Живое выступление',
   },
   {
     id: 6,
-    src: '/path-to-your-image2.jpg',
+    src: '/images/gallery/gallery-6.jpg',
     alt: 'Концертное выступление',
     description: 'Живое выступление',
   },

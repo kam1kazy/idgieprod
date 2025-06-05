@@ -34,7 +34,7 @@ const About: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[55.5rem] flex flex-col justify-between  bg-gradient-to-b from-black to-gray-900 text-white"
+      className="relative h-[55.5rem] flex flex-col justify-between bg-gradient-to-b from-black to-gray-900 text-white"
     >
       <div className="w-[81.25rem] mr-auto ml-auto flex-row items-start justify-between flex-1 flex flex-col mb-[5rem] z-[1] mt-[4.375rem]">
         <h2
@@ -51,7 +51,7 @@ const About: React.FC = () => {
 
       {/* Фоновое изображение */}
       <div className="absolute inset-0 mt-[0] ml-[auto] mr-[20.875rem]">
-        <Image src="/images/person.png" alt="Background" fill className="object-contain" priority />
+        <Image src="/images/idgie.png" alt="Background" fill className="object-contain" priority />
       </div>
     </section>
   );

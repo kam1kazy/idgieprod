@@ -22,7 +22,7 @@ export const updatePosition = ({ sectionRef, titleRef }: IProps) => {
     );
 
     // Вычисляем максимальное смещение
-    const maxOffset = rect.height - title.offsetHeight - 150;
+    const maxOffset = title.offsetHeight - 0;
     const newPosition = progress * maxOffset;
 
     // Применяем трансформацию

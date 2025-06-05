@@ -1,92 +1,115 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-import type { Artist } from './NamesCloudList';
+// import type { Artist } from './NamesCloudList';
 import { artists } from './NamesCloudList';
 
 const NamesCloud = () => {
-  const [selectedArtist, setSelectedArtist] = useState<Artist | null>(artists[0]);
-  const [hoveredArtist, setHoveredArtist] = useState<Artist | null>(null);
+  const itemsPerPage = 3; // Примерное количество видимых элементов
+  const transitionItems = itemsPerPage; // Количество элементов для плавного перехода с каждого конца
 
-  const handleArtistClick = (artist: Artist) => {
-    setSelectedArtist(artist);
+  // Создаем массив для бесшовной карусели, дублируя элементы
+  const loopedArtists = [
+    ...artists.slice(-transitionItems),
+    ...artists,
+    ...artists.slice(0, transitionItems),
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(transitionItems); // Начинаем с первого реального элемента
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prevSlide) => {
+      const newSlide = prevSlide - 1;
+      // Если перешли на дублированные элементы в начале, мгновенно перепрыгиваем в конец реальных элементов
+      if (newSlide < transitionItems) {
+        // Используем setTimeout с 0ms задержкой, чтобы дать CSS-переходу завершиться визуально перед сбросом позиции
+        setTimeout(() => setCurrentSlide(artists.length + transitionItems - 1), 0);
+      }
+      return newSlide;
+    });
   };
 
-  const handleMouseEnter = (artist: Artist) => {
-    setHoveredArtist(artist);
-    if (!selectedArtist) {
-      setSelectedArtist(artist);
-    }
+  const handleNextSlide = () => {
+    setCurrentSlide((prevSlide) => {
+      const newSlide = prevSlide + 1;
+      // Если перешли на дублированные элементы в конце, мгновенно перепрыгиваем в начало реальных элементов
+      if (newSlide >= artists.length + transitionItems) {
+        // Используем setTimeout с 0ms задержкой для сброса позиции после визуального перехода
+        setTimeout(() => setCurrentSlide(transitionItems), 0);
+      }
+      return newSlide;
+    });
   };
 
-  const handleMouseLeave = () => {
-    setHoveredArtist(null);
-  };
-
-  const displayArtist = selectedArtist || hoveredArtist;
+  // const displayArtist = selectedArtist || hoveredArtist;
 
   return (
-    <div className="w-full h-[700px] relative flex items-center">
-      <div className="flex gap-8 w-full">
-        {/* Список артистов слева */}
-        <div className="w-1/3 max-h-[500px] overflow-y-auto custom-scrollbar">
-          <div className="space-y-2 pr-4">
-            {artists.map((artist) => (
-              <div
-                key={artist.name}
-                className={`p-3 rounded-lg cursor-pointer transition-all duration-300 ${
-                  selectedArtist?.name === artist.name
-                    ? 'bg-blue-600 text-white'
-                    : hoveredArtist?.name === artist.name
-                      ? 'bg-gray-700 text-white'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }`}
-                onMouseEnter={() => handleMouseEnter(artist)}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleArtistClick(artist)}
-              >
+    <section className="w-full mb-[6rem] mt-[8rem]">
+      <div className="w-[81.25rem] mx-auto flex relative items-center justify-center">
+        {/* Карусель артистов */}
+        <h2 className="text-4xl uppercase font-bold text-white text-center mb-8">С кем работал</h2>
+
+        {/* Навигационные стрелки */}
+        <div className="absolute top-0 right-0 z-10 flex gap-4">
+          {/* Левая стрелка */}
+          <button
+            className="text-gray-400 hover:text-white transition-colors cursor-pointer duration-300"
+            onClick={handlePrevSlide}
+          >
+            ←
+          </button>
+          {/* Правая стрелка */}
+          <button
+            className="text-gray-400 hover:text-white transition-colors cursor-pointer duration-300"
+            onClick={handleNextSlide}
+          >
+            →
+          </button>
+        </div>
+      </div>
+      <div className="relative w-full mt-[3rem] mb-[5rem] overflow-hidden">
+        {/* Градиент слева */}
+        <div className="absolute top-0 left-0 bottom-0 w-32 z-10 bg-gradient-to-r from-black to-transparent pointer-events-none"></div>
+        {/* Градиент справа */}
+        <div className="absolute top-0 right-0 bottom-0 w-32 z-10 bg-gradient-to-l from-black to-transparent pointer-events-none"></div>
+
+        {/* Карусель изображений */}
+        <div
+          className="flex transition-transform duration-300 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 436}px)` }} // Смещаем на ширину карточки + отступ, учитывая начальное смещение из-за дублированных элементов
+        >
+          {loopedArtists.map((artist, index) => (
+            <div
+              key={`${artist.name}-${index}`} // Используем имя артиста и индекс для уникального ключа, т.к. имена могут повторяться после дублирования
+              className="flex-none relative group overflow-hidden mr-9"
+              style={{ width: '350px', height: '450px' }}
+            >
+              <Image
+                src={artist.avatar}
+                alt={artist.name}
+                fill={true}
+                className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 z-0"
+              />
+              {/* Имя артиста при наведении */}
+              <div className="absolute block w-full inset-x-0 bottom-0 text-white text-center p-2 pt-[8rem] opacity-0 h-[11rem] group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/[1] to-transparent">
                 {artist.name}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Карточка артиста справа */}
-        <div className="w-2/3 h-[500px]">
-          {displayArtist ? (
-            <div className="bg-gray-800 rounded-xl p-6 transition-all duration-300 h-full">
-              <div className="flex gap-6">
-                <Image
-                  src={displayArtist.avatar}
-                  alt={displayArtist.name}
-                  width={128}
-                  height={128}
-                  className="w-32 h-32 rounded-lg object-cover"
-                />
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{displayArtist.name}</h3>
-                  <p className="text-gray-300 mb-4">{displayArtist.description}</p>
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">Работы:</h4>
-                    <ul className="space-y-2">
-                      {displayArtist.works.map((work, index) => (
-                        <li key={index} className="text-gray-300">
-                          {work}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
             </div>
-          ) : (
-            <div className="bg-gray-800 rounded-xl p-6 flex items-center justify-center h-full">
-              <p className="text-gray-400">
-                Наведите на имя артиста, чтобы увидеть подробную информацию
-              </p>
-            </div>
-          )}
+          ))}
         </div>
+      </div>
+      <div className="w-[81.25rem] mx-auto flex-col flex relative  justify-center">
+        {/* Карусель артистов */}
+        <p className="text-[2.8rem] mb-[2rem]">
+          Меня заказывают те, кто хочет результат — и те, кто уже знает, как он звучит.
+        </p>
+        <br />
+        <p className="text-[0.8rem] w-[48rem]">
+          <i>
+            Noize MC, Гречка, Рем Дигга, Юлианна Караулова, Джаро, RAM, Космонавтов нет, Саша
+            Спилберг, Таня Терешина, Леницкий, Элона Миллер, Ксюша Хоффман, Карен Туз, и другие.
+          </i>
+        </p>
       </div>
 
       <style>
@@ -110,7 +133,7 @@ const NamesCloud = () => {
           }
         `}
       </style>
-    </div>
+    </section>
   );
 };
 

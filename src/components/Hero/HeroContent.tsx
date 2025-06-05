@@ -15,7 +15,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ onOpenModal, isModalOpen }) =
 
   return (
     <div
-      className={`flex-1 flex flex-col justify-end mb-[5rem] items-center z-1 ${
+      className={`flex-1 flex flex-col justify-end items-center z-1 ${
         isModalOpen ? 'opacity-10' : 'opacity-100'
       }`}
     >
