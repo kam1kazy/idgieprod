@@ -1,6 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import { RefObject, useCallback, useEffect, useState } from 'react';
 
-export const useVolumeDrag = (onVolumeChange: (volume: number) => void) => {
+export const useVolumeDrag = (
+  onVolumeChange: (volume: number) => void,
+  volumeSliderRef: RefObject<HTMLDivElement | null>
+) => {
   const [isDragging, setIsDragging] = useState(false);
 
   const calculateVolume = (clientY: number, element: HTMLDivElement) => {
@@ -23,13 +26,13 @@ export const useVolumeDrag = (onVolumeChange: (volume: number) => void) => {
         return;
       }
 
-      const volumeElement = document.querySelector('.volume-slider') as HTMLDivElement;
+      const volumeElement = volumeSliderRef.current;
       if (volumeElement) {
         const newVolume = calculateVolume(e.clientY, volumeElement);
         onVolumeChange(newVolume);
       }
     },
-    [isDragging, onVolumeChange]
+    [isDragging, onVolumeChange, volumeSliderRef]
   );
 
   const handleMouseUp = () => {

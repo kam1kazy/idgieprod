@@ -27,7 +27,7 @@ const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [showMiniPlayer, setShowMiniPlayer] = useState(false);
@@ -74,7 +74,7 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
   const handleVolumeChange = (value: number) => {
     if (audioRef.current) {
-      audioRef.current.volume = value;
+      audioRef.current.volume = value / 100;
       setVolume(value);
     }
   };
