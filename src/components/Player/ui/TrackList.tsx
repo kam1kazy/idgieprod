@@ -1,10 +1,6 @@
 import Image from 'next/image';
 
-interface Track {
-  title: string;
-  duration: string;
-  src: string;
-}
+import { Track } from '../songlist';
 
 interface TrackListProps {
   tracks: Track[];
@@ -35,7 +31,10 @@ const TrackList: React.FC<TrackListProps> = ({ tracks, onTrackSelect, currentTra
                   className="transition-all"
                 />
               </span>
-              <span className="text-white font-medium">{track.title}</span>
+              <span className="text-white font-medium">
+                {track.artist} - {track.title}{' '}
+                {track.feat && <span className="text-sm text-[#047cb9]"> ft. {track.feat}</span>}
+              </span>
             </div>
             <span className="text-gray-300">{track.duration}</span>
           </li>

@@ -89,13 +89,16 @@ const WorksModal: React.FC<WorksModalProps> = ({
             {/* Левая часть: текст и треки */}
             <div className="flex-1 flex flex-col justify-between">
               <div>
-                <div className="text-sm text-[#047cb9] mb-2">Our New Album</div>
+                {currentTrack?.alboum && (
+                  <div className="text-sm text-[#047cb9] mb-2">{currentTrack?.alboum}</div>
+                )}
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
-                  {currentTrack?.title || 'Till The Wheels'}
-                  <br />
-                  Fall Off
+                  {currentTrack?.artist} - {currentTrack?.title}
                 </h1>
-                <div className="text-gray-300 mb-6">ft. Lil Durk, Capella Grey</div>
+                {currentTrack?.feat && (
+                  <div className="text-gray-300 mb-6">ft. {currentTrack?.feat}</div>
+                )}
+
                 <ProgressBar
                   currentTime={formatTime(currentTime)}
                   totalTime={formatTime(duration)}

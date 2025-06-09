@@ -40,8 +40,8 @@ const PlaylistTabs: React.FC<PlaylistTabsProps> = ({
             onClick={() => onGenreChange(genre)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-[pointer] ${
               selectedGenre === genre
-                ? 'bg-[#047cb9] text-white'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                ? 'bg-orange-500 text-white'
+                : 'bg-orange-800 text-gray-400 hover:bg-orange-700'
             }`}
           >
             {genre}
