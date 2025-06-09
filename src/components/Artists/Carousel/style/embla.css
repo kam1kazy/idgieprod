@@ -33,7 +33,10 @@
   border-radius: 0.5rem;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: grayscale(100%);
 }
 .embla__slide__overlay {
   position: absolute;
@@ -55,7 +58,8 @@
   opacity: 1;
 }
 .embla__slide__wrapper:hover .embla__slide__img {
-  transform: scale(1.05);
+  transform: scale(1.02);
+  filter: grayscale(0%);
 }
 .embla__controls {
   display: grid;
