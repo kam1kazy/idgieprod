@@ -1,4 +1,4 @@
-import { Category } from '@/components/Player/songlist';
+import { Category } from '@/components/Player/songList';
 
 import { services } from './content/ContentList';
 import ServiceButton from './ServiceButton';

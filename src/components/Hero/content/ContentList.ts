@@ -1,4 +1,4 @@
-import { Category } from '@/components/Player/songlist';
+import { Category } from '@/components/Player/songList';
 
 export const services = [
   {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import { Category, Genre, playlistData } from '@/components/Player/songlist';
+import { Category, Genre, playlistData } from '@/components/Player/songList';
 
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTimeFormat } from './hooks/useTimeFormat';

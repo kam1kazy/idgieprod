@@ -1,4 +1,4 @@
-import { Category, Genre, Track } from '@/components/Player/songlist';
+import { Category, Genre, Track } from '@/components/Player/songList';
 
 import PlaylistTabs from './PlaylistTabs';
 import TrackList from './TrackList';

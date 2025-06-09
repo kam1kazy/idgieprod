@@ -8,7 +8,7 @@ import Footer from '@/components/Footer/Footer';
 import Gallery from '@/components/Gallery/Gallery';
 import Header from '@/components/Header/Header';
 import Hero from '@/components/Hero/Hero';
-import { Category } from '@/components/Player/songlist';
+import { Category } from '@/components/Player/songList';
 import WorksModal from '@/components/Player/WorksModal';
 import Portfolio from '@/components/Portfolio/Portfolio';
 

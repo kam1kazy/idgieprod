@@ -1,4 +1,4 @@
-import { Category, Genre } from '@/components/Player/songlist';
+import { Category, Genre } from '@/components/Player/songList';
 
 export interface PortfolioCard {
   genre: Genre;

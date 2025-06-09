@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Track } from '../songlist';
+import { Track } from '../songList';
 
 interface TrackListProps {
   tracks: Track[];

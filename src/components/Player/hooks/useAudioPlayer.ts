@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { Track } from '@/components/Player/songlist';
+import { Track } from '@/components/Player/songList';
 
 export const useAudioPlayer = (initialVolume: number) => {
   const [isPlaying, setIsPlaying] = useState(false);

@@ -2,7 +2,7 @@
 
 import React, { createContext, ReactNode, useContext, useRef, useState } from 'react';
 
-import { Track } from '../songlist';
+import { Track } from '../songList';
 
 interface PlayerContextType {
   isPlaying: boolean;

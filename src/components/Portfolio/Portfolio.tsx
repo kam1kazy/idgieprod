@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useAudioPlayer } from '../Player/hooks/useAudioPlayer';
 import { useTimeFormat } from '../Player/hooks/useTimeFormat';
 import MiniPlayer from '../Player/MiniPlayer';
-import { Category, Genre, playlistData } from '../Player/songlist';
+import { Category, Genre, playlistData } from '../Player/songList';
 import PlayerControls from '../Player/ui/PlayerControls';
 import Playlist from '../Player/ui/Playlist';
 import ProgressBar from '../Player/ui/ProgressBar';

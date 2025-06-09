@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Category } from '@/components/Player/songlist';
+import { Category } from '@/components/Player/songList';
 
 import HeroContent from './HeroContent';
 
