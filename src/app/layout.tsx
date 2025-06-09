@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 import { PlayerProvider } from '@/components/Player/context/PlayerContext';
+
 import { ntSomic, ntSomicVariable } from './fonts';
 
 export const metadata: Metadata = {

@@ -2,7 +2,7 @@ export type Genre = 'POP' | 'HIP-HOP' | 'ROCK';
 export type Category = 'Песни под ключ' | 'Аранжировка' | 'Сведение-мастеринг';
 
 export interface Track {
-  alboum?: string;
+  album?: string;
   artist?: string;
   title: string;
   feat?: string;

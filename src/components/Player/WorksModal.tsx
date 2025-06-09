@@ -7,6 +7,7 @@ import { usePlayer } from './context/PlayerContext';
 import { useTimeFormat } from './hooks/useTimeFormat';
 import MiniPlayer from './MiniPlayer';
 import PlayerControls from './ui/PlayerControls';
+import PlayerTitle from './ui/PlayerTitle';
 import Playlist from './ui/Playlist';
 import ProgressBar from './ui/ProgressBar';
 import VolumeControl from './ui/VolumeControl';
@@ -89,12 +90,11 @@ const WorksModal: React.FC<WorksModalProps> = ({
             {/* Левая часть: текст и треки */}
             <div className="flex-1 flex flex-col justify-between">
               <div>
-                {currentTrack?.alboum && (
-                  <div className="text-sm text-[#047cb9] mb-2">{currentTrack?.alboum}</div>
-                )}
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
-                  {currentTrack?.artist} - {currentTrack?.title}
-                </h1>
+                <PlayerTitle
+                  artist={currentTrack?.artist}
+                  title={currentTrack?.title}
+                  album={currentTrack?.album}
+                />
                 {currentTrack?.feat && (
                   <div className="text-gray-300 mb-6">ft. {currentTrack?.feat}</div>
                 )}

@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 
 import { usePlayer } from '../Player/context/PlayerContext';
 import { useTimeFormat } from '../Player/hooks/useTimeFormat';
-import MiniPlayer from '../Player/MiniPlayer';
 import { Category, Genre, playlistData } from '../Player/songList';
 import PlayerControls from '../Player/ui/PlayerControls';
+import PlayerTitle from '../Player/ui/PlayerTitle';
 import Playlist from '../Player/ui/Playlist';
 import ProgressBar from '../Player/ui/ProgressBar';
 import VolumeControl from '../Player/ui/VolumeControl';
@@ -28,7 +28,6 @@ const Portfolio = () => {
     duration,
     currentTrack,
     volume,
-    showMiniPlayer,
     setShowMiniPlayer,
     handlePlay,
     handleTimeUpdate,
@@ -36,7 +35,6 @@ const Portfolio = () => {
     handleTrackSelect,
     handleSeek,
     handleVolumeChange,
-    handleStop,
   } = usePlayer();
 
   const { formatTime } = useTimeFormat();
@@ -58,7 +56,6 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-20 px-4">
-      <MiniPlayer isVisible={showMiniPlayer} onStop={handleStop} />
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-white text-center mb-3 mt-12 uppercase">
           Мои работы
@@ -106,10 +103,11 @@ const Portfolio = () => {
             {/* Левая часть: текст и треки */}
             <div className="flex-1 flex flex-col">
               <div>
-                <div className="text-sm text-[#047cb9] mb-2">Наши работы</div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
-                  {currentTrack?.title || 'Выберите трек'}
-                </h1>
+                <PlayerTitle
+                  artist={currentTrack?.artist}
+                  title={currentTrack?.title}
+                  album={currentTrack?.album}
+                />
                 <div className="text-gray-300 mb-6">{selectedGenre}</div>
                 <ProgressBar
                   currentTime={formatTime(currentTime)}
