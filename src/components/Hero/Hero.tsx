@@ -11,16 +11,16 @@ interface IProps {
 
 const Hero: React.FC<IProps> = ({ handleOpenModal, isModalOpen }: IProps) => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between text-white overflow-hidden">
-      <div className="w-[81.25rem] mr-auto ml-auto mt-auto mb-[3.75rem] z-[1]">
+    <section className="relative min-h-screen flex flex-col justify-between text-white overflow-hidden ">
+      <div className="w-full max-w-[81.25rem] mr-auto ml-auto mt-auto mb-[3.75rem] z-[1] px-4 md:px-0">
         <HeroContent onOpenModal={handleOpenModal} isModalOpen={isModalOpen} />
       </div>
 
       {/* Фоновое изображение */}
-      <div className="absolute inset-0 mt-[0] ml-[auto] mr-[auto]">
-        <Image src="/images/bg.jpg" alt="Background" fill className="object-contain" priority />
+      <div className="absolute inset-0 mt-[0] ml-[auto] mr-[auto] w-full">
+        <Image src="/images/hero.png" alt="Background" fill className="object-contain" priority />
       </div>
-      <div className={`absolute inset-0 ${isModalOpen ? 'bg-black/80' : 'bg-black/38'}`} />
+      <div className={`absolute inset-0 ${isModalOpen ? 'bg-black/80' : 'bg-black/20'}`} />
     </section>
   );
 };
