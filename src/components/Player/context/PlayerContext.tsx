@@ -10,6 +10,7 @@ interface PlayerContextType {
   volume: number;
   currentTime: number;
   duration: number;
+  showMiniPlayer: boolean;
   audioRef: React.RefObject<HTMLAudioElement | null>;
   handlePlay: () => void;
   handleTrackSelect: (track: Track) => void;
@@ -18,6 +19,7 @@ interface PlayerContextType {
   handleSeek: (time: number) => void;
   handleVolumeChange: (value: number) => void;
   handleStop: () => void;
+  setShowMiniPlayer: (show: boolean) => void;
 }
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -28,6 +30,7 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [volume, setVolume] = useState(1);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [showMiniPlayer, setShowMiniPlayer] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const handlePlay = () => {
@@ -90,6 +93,7 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     volume,
     currentTime,
     duration,
+    showMiniPlayer,
     audioRef,
     handlePlay,
     handleTrackSelect,
@@ -98,6 +102,7 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     handleSeek,
     handleVolumeChange,
     handleStop,
+    setShowMiniPlayer,
   };
 
   return <PlayerContext.Provider value={value}>{children}</PlayerContext.Provider>;

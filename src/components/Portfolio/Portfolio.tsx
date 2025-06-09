@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import { useAudioPlayer } from '../Player/hooks/useAudioPlayer';
+import { usePlayer } from '../Player/context/PlayerContext';
 import { useTimeFormat } from '../Player/hooks/useTimeFormat';
 import MiniPlayer from '../Player/MiniPlayer';
 import { Category, Genre, playlistData } from '../Player/songList';
@@ -20,7 +20,6 @@ const genreToImage: Record<Genre, string> = {
 const Portfolio = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
   const [selectedCategory, setSelectedCategory] = useState<Category>('Песни под ключ');
-  const [showMiniPlayer, setShowMiniPlayer] = useState(false);
 
   const {
     audioRef,
@@ -29,6 +28,8 @@ const Portfolio = () => {
     duration,
     currentTrack,
     volume,
+    showMiniPlayer,
+    setShowMiniPlayer,
     handlePlay,
     handleTimeUpdate,
     handleLoadedMetadata,
@@ -36,7 +37,7 @@ const Portfolio = () => {
     handleSeek,
     handleVolumeChange,
     handleStop,
-  } = useAudioPlayer(66);
+  } = usePlayer();
 
   const { formatTime } = useTimeFormat();
 

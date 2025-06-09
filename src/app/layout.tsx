@@ -2,6 +2,7 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 
+import { PlayerProvider } from '@/components/Player/context/PlayerContext';
 import { ntSomic, ntSomicVariable } from './fonts';
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body className={`${ntSomic.variable} ${ntSomicVariable.variable} antialiased`}>
-        {children}
+        <PlayerProvider>{children}</PlayerProvider>
       </body>
     </html>
   );

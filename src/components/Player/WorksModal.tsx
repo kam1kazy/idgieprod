@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { Category, Genre, playlistData } from '@/components/Player/songList';
 
-import { useAudioPlayer } from './hooks/useAudioPlayer';
+import { usePlayer } from './context/PlayerContext';
 import { useTimeFormat } from './hooks/useTimeFormat';
 import MiniPlayer from './MiniPlayer';
 import PlayerControls from './ui/PlayerControls';
@@ -47,7 +47,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
     handleSeek,
     handleStop,
     handleVolumeChange,
-  } = useAudioPlayer(66);
+  } = usePlayer();
 
   const { formatTime } = useTimeFormat();
 
