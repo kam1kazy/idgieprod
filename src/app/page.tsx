@@ -3,13 +3,13 @@
 import { useState } from 'react';
 
 import About from '@/components/About/About';
+import Artists from '@/components/Artists/Artists';
 import Footer from '@/components/Footer/Footer';
 import Gallery from '@/components/Gallery/Gallery';
 import Header from '@/components/Header/Header';
 import Hero from '@/components/Hero/Hero';
 import { Category } from '@/components/Player/songlist';
 import WorksModal from '@/components/Player/WorksModal';
-import NamesCloud from '@/components/Portfolio/NamesCloud';
 import Portfolio from '@/components/Portfolio/Portfolio';
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
       <Hero handleOpenModal={handleOpenModal} isModalOpen={isModalOpen} />
       <About />
       <Portfolio />
-      <NamesCloud />
+      <Artists />
       <Gallery />
       <Footer />
     </>
