@@ -7,18 +7,6 @@ export interface Artist {
 
 export const artists: Artist[] = [
   {
-    name: 'КОСМОНАВТОВ НЕТ',
-    avatar: '/images/artists/kosmonavtov-net.jpg',
-    description: 'Российская рок-группа',
-    works: ['Альбом "Горизонт" (2023)', 'Сингл "Звезды" (2022)', 'Сингл "Орбита" (2021)'],
-  },
-  {
-    name: 'Татьяна ТЕРЕШИНА',
-    avatar: '/images/artists/tereshina.jpg',
-    description: 'Российская певица, автор песен',
-    works: ['Альбом "Новый день" (2023)', 'Сингл "Рассвет" (2022)', 'Сингл "Закат" (2021)'],
-  },
-  {
     name: 'Рем Дигга',
     avatar: '/images/artists/rem-digga.jpg',
     description: 'Российский рэп-исполнитель, автор песен и продюсер',
@@ -51,6 +39,18 @@ export const artists: Artist[] = [
       'Сингл "Свежий расслабон" (2014)',
       'Сингл "Плохой романтик" (2015)',
     ],
+  },
+  {
+    name: 'КОСМОНАВТОВ НЕТ',
+    avatar: '/images/artists/kosmonavtov-net.jpg',
+    description: 'Российская рок-группа',
+    works: ['Альбом "Горизонт" (2023)', 'Сингл "Звезды" (2022)', 'Сингл "Орбита" (2021)'],
+  },
+  {
+    name: 'Татьяна ТЕРЕШИНА',
+    avatar: '/images/artists/tereshina.jpg',
+    description: 'Российская певица, автор песен',
+    works: ['Альбом "Новый день" (2023)', 'Сингл "Рассвет" (2022)', 'Сингл "Закат" (2021)'],
   },
   {
     name: 'Джаро',
