@@ -7,7 +7,7 @@ interface ContactsModalProps {
 
 const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
   return (
-    <div
+    <section
       className={`fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-[#06090bbf]/95 backdrop-blur-md transition-opacity duration-300 ${
         isOpen ? 'opacity-100 pointer-events-all' : 'opacity-0 pointer-events-none'
       }`}
@@ -103,7 +103,7 @@ const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -55,7 +55,7 @@ const Portfolio = () => {
   const currentTracks = playlistData[selectedCategory][selectedGenre];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-20 px-4">
+    <section className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-white text-center mb-3 mt-12 uppercase">
           Мои работы
@@ -154,7 +154,7 @@ const Portfolio = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,6 +2,7 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 
+import GlowEffect from '@/components/GlowEffect/GlowEffect';
 import { PlayerProvider } from '@/components/Player/context/PlayerContext';
 
 import { inspiration, ntSomic, ntSomicVariable } from './fonts';
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${ntSomic.variable} ${ntSomicVariable.variable} ${inspiration.variable} antialiased`}
       >
+        <GlowEffect />
         <PlayerProvider>{children}</PlayerProvider>
       </body>
     </html>

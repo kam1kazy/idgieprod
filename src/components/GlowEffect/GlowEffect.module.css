@@ -1,0 +1,33 @@
+.glowContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Changed from -1 to 0 to make it visible */
+}
+
+.glow {
+  position: absolute;
+  width: 300px; /* Initial size, will be adjusted */
+  height: 300px; /* Initial size, will be adjusted */
+  border-radius: 50%;
+  filter: blur(150px); /* Soft glow effect */
+  opacity: 0.7;
+  transition: transform 0.1s ease-out; /* Smooth transition for scroll effect */
+}
+
+.glowLeft {
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 1) 85%, rgba(255, 0, 0, 0) 70%);
+  left: -150px; /* Adjust to start off-screen */
+  top: 20%;
+  transform: translate(0, 0);
+}
+
+.glowRight {
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 1) 85%, rgba(0, 255, 255, 0) 70%);
+  right: -150px; /* Adjust to start off-screen */
+  top: 50%;
+  transform: translate(0, 0);
+}

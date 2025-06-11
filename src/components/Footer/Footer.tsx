@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaTelegram } from 'react-icons/fa';
+import { FaInstagram, FaTelegram, FaYoutube } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           <div className="flex space-x-6">
             {/* Instagram */}
             <a
-              href="https://instagram.com/your-username"
+              href="https://www.instagram.com/the_idgie/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 p-3 rounded-full hover:opacity-80 transition-opacity"
@@ -28,12 +28,22 @@ const Footer: React.FC = () => {
 
             {/* Telegram */}
             <a
-              href="https://t.me/your-username"
+              href="t.me/idgieprod"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#0088cc] p-3 rounded-full hover:opacity-80 transition-opacity"
             >
               <FaTelegram className="text-white text-2xl" />
+            </a>
+
+            {/* YouTube */}
+            <a
+              href="https://youtube.com/your-channel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FF0000] p-3 rounded-full hover:opacity-80 transition-opacity"
+            >
+              <FaYoutube className="text-white text-2xl" />
             </a>
           </div>
 

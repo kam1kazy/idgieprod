@@ -78,7 +78,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
   return (
     <>
       <MiniPlayer isVisible={showMiniPlayer} onStop={handleStop} />
-      <div
+      <section
         className={`fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-[#06090bbf]/75 backdrop-blur-md transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-all' : 'opacity-0 pointer-events-none '
         }`}
@@ -141,7 +141,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
