@@ -62,15 +62,15 @@ const Portfolio = () => {
         </h1>
 
         {/* Карточки в виде веера */}
-        <div className="relative h-[600px]">
+        <div className="relative h-[600px] flex items-center justify-between">
           {portfolioCards.map((card, index) => (
             <div
               key={card.genre}
-              className={`absolute w-85 transition-all duration-300 hover:scale-110 cursor-pointer`}
+              className={`w-85 transition-all duration-300 hover:scale-110 cursor-pointer`}
               style={{
-                left: `${25 + index * 25}%`,
-                top: '50%',
-                transform: `translate(-50%, -50%) rotate(${-15 + index * 15}deg)`,
+                // left: `${25 + index * 25}%`,
+                // top: '50%',
+                // transform: `translate(-50%, -50%) rotate(${-15 + index * 15}deg)`,
                 zIndex: index,
               }}
               onClick={() => handleCardClick(card.genre, card.category)}
