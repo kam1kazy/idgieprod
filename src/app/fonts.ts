@@ -25,3 +25,14 @@ export const ntSomicVariable = localFont({
   src: '../../public/fonts/nt_somic/Variable/NTSomic-VF.ttf',
   variable: '--font-nt-somic-variable',
 });
+
+export const inspiration = localFont({
+  src: [
+    {
+      path: '../../public/fonts/inspiration/Inspiration.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-inspiration-variable',
+});

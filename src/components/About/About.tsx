@@ -36,8 +36,8 @@ const About: React.FC = () => {
         </h2>
         <div className="relative flex flex-col lg:flex-row items-start justify-between gap-8 md:gap-[4.375rem] w-full">
           {/* Image and Name/Quote */}
-          <div className="flex-1   flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="relative w-full h-[20rem] sm:h-[30rem] md:h-[35rem] lg:h-[40rem] max-w-[25rem] lg:max-w-none">
+          <div className="flex-col items-center lg:items-start text-center lg:text-left max-w-[25rem] lg:max-w-[30rem] flex-shrink-0">
+            <div className="relative w-full h-[16rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] max-w-[25rem] lg:max-w-[30rem]">
               <Image
                 src="/images/idgie-crop.jpg"
                 alt="Дмитрий Эбергарт"
@@ -45,44 +45,44 @@ const About: React.FC = () => {
                 className="object-cover rounded-lg shadow-md"
               />
             </div>
-            <h3 className="text-white text-4xl font-bold mt-8">ДМИТРИЙ ЭБЕРГАРТ aka IDGIE</h3>
-            <p className="text-gray-300 text-3xl italic mt-4">
+            <h3 className="text-white text-3xl font-bold mt-8">ДМИТРИЙ ЭБЕРГАРТ aka IDGIE</h3>
+            <p className="text-gray-300 text-[1.6rem] italic mt-4 font-(family-name:--font-inspiration-variable)">
               Музыка - мой дом. Заходи, пожалуйста. <br /> Я точно знаю, как в нём строить хиты!
             </p>
           </div>
 
           {/* Text Content */}
-          <div className="flex-1 gap-[1.5rem] flex flex-col max-w-prose relative mt-8 lg:mt-0 lg:ml-auto">
-            <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed mb-4">
+          <div className="flex-1 gap-[1.5rem] flex flex-col relative mt-8 lg:mt-0 lg:ml-auto">
+            <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed">
               30 лет. 14 лет в индустрии, 11 из них на проф. уровне
             </p>
-            <p className="text-white text-xl md:text-2xl font-bold mb-8">
+            <p className="text-white text-xl md:text-1xl font-bold mb-6">
               Продюсер. Сонграйтер. Звукорежиссёр. Артист. Человек и пароход.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div className="text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-9">
+              <div className="">
                 <p className="text-orange-500 text-[3.6rem] font-bold">1000+</p>
-                <p className="text-gray-500 text-base">аранжировок</p>
+                <p className="text-gray-500 text-[1.4rem] text-base">аранжировок</p>
               </div>
-              <div className="text-center">
+              <div className="">
                 <p className="text-orange-500 text-[3.6rem] font-bold">1000+</p>
-                <p className="text-gray-500 text-base">сведенных треков</p>
+                <p className="text-gray-500 text-[1.4rem] text-base">сведенных треков</p>
               </div>
-              <div className="text-center">
+              <div className="">
                 <p className="text-orange-500 text-[3.6rem] font-bold">300+</p>
-                <p className="text-gray-500 text-base">авторских песен</p>
+                <p className="text-gray-500 text-[1.4rem] text-base">авторских песен</p>
               </div>
             </div>
 
-            <p className="text-white text-lg md:text-xl font-semibold mb-2">Жанры:</p>
-            <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed mb-4">
+            <p className="text-white text-lg md:text-xl font-semibold mb-1">Жанры:</p>
+            <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed mb-2">
               Поп, хип-хоп, рок, R&B, хаус, бэйс и многие другие <br />
               Мои треки попадали в топ-чарты <br />
               Некоторые — собирали 20+ млн на YouTube
             </p>
 
-            <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed mb-2">
+            <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed">
               Также писал саундтреки для игр компании Wargaming <br />И работал над саунд-дизайном
               короткометражек
             </p>

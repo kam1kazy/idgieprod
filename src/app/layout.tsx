@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 import { PlayerProvider } from '@/components/Player/context/PlayerContext';
 
-import { ntSomic, ntSomicVariable } from './fonts';
+import { inspiration, ntSomic, ntSomicVariable } from './fonts';
 
 export const metadata: Metadata = {
   title: 'IDGIE.Prod',
@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`${ntSomic.variable} ${ntSomicVariable.variable} antialiased`}>
+      <body
+        className={`${ntSomic.variable} ${ntSomicVariable.variable} ${inspiration.variable} antialiased`}
+      >
         <PlayerProvider>{children}</PlayerProvider>
       </body>
     </html>
