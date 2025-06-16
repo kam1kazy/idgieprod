@@ -117,10 +117,10 @@ const WorksModal: React.FC<WorksModalProps> = ({
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
           />
-          <div className="flex flex-col md:flex-row gap-10">
-            {/* Левая часть: текст и треки */}
-            <div className="flex-1 flex flex-col justify-between">
-              <div>
+          <div className="flex flex-col gap-10">
+            {/* Верхняя часть: название и обложка */}
+            <div className="flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
+              <div className="flex-1">
                 <PlayerTitle
                   artist={currentTrack?.artist}
                   title={currentTrack?.title}
@@ -129,7 +129,6 @@ const WorksModal: React.FC<WorksModalProps> = ({
                 {currentTrack?.feat && (
                   <div className="text-gray-300 mb-6">ft. {currentTrack?.feat}</div>
                 )}
-
                 <ProgressBar
                   currentTime={formatTime(currentTime)}
                   totalTime={formatTime(duration)}
@@ -137,27 +136,36 @@ const WorksModal: React.FC<WorksModalProps> = ({
                   onSeek={handleSeek}
                 />
               </div>
-              <Playlist
-                selectedCategory={selectedCategory}
-                selectedGenre={selectedGenre}
-                currentTrack={currentTrack || undefined}
-                onCategoryChange={setSelectedCategory}
-                onGenreChange={setSelectedGenre}
-                onTrackSelect={handleTrackSelect}
-                tracks={currentTracks}
-              />
+              {/* Обложка альбома - видна от 460px */}
+              <div className="hidden min-[460px]:block">
+                <Image
+                  src={genreToImage[selectedGenre]}
+                  alt="Album Cover"
+                  width={192}
+                  height={192}
+                  className="w-48 h-48 rounded-xl object-cover shadow-lg"
+                />
+              </div>
             </div>
-            {/* Правая часть: обложка и контролы */}
-            <div className="flex flex-col items-center justify-center gap-8">
-              <Image
-                src={genreToImage[selectedGenre]}
-                alt="Album Cover"
-                width={192}
-                height={192}
-                className="w-48 h-48 rounded-xl object-cover shadow-lg mb-4"
-              />
-              <PlayerControls onPlay={handlePlay} isPlaying={isPlaying} />
-              <VolumeControl volume={volume} onVolumeChange={handleVolumeChange} />
+
+            {/* Нижняя часть: плейлист и контролы */}
+            <div className="flex flex-col md:flex-row gap-10">
+              <div className="flex-1">
+                <Playlist
+                  selectedCategory={selectedCategory}
+                  selectedGenre={selectedGenre}
+                  currentTrack={currentTrack || undefined}
+                  onCategoryChange={setSelectedCategory}
+                  onGenreChange={setSelectedGenre}
+                  onTrackSelect={handleTrackSelect}
+                  tracks={currentTracks}
+                />
+              </div>
+              {/* Контролы - видны только на десктопе */}
+              <div className="hidden lg:flex flex-col items-center justify-center gap-8">
+                <PlayerControls onPlay={handlePlay} isPlaying={isPlaying} />
+                <VolumeControl volume={volume} onVolumeChange={handleVolumeChange} />
+              </div>
             </div>
           </div>
         </div>

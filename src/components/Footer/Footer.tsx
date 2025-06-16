@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           {/* Email */}
           <a
             href="mailto:your.email@example.com"
-            className="text-white hover:text-gray-300 transition-colors text-lg"
+            className="text-base sm:text-lg text-white hover:text-gray-300 transition-colors"
           >
             your.email@example.com
           </a>
@@ -48,7 +48,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Copyright */}
-          <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Все права защищены</p>
+          <p className="text-xs sm:text-sm text-gray-500">
+            © {new Date().getFullYear()} Все права защищены
+          </p>
         </div>
       </div>
     </footer>

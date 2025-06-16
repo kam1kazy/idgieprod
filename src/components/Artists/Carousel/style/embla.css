@@ -2,9 +2,31 @@
   margin: auto;
   /* --slide-height: 19rem; */
   --slide-spacing: 1rem;
-  --slide-size: 20%;
+  --slide-size: 100%;
   --slide-height: 400px;
 }
+
+/* Планшеты (768px и выше) */
+@media (min-width: 768px) {
+  .embla {
+    --slide-size: 33.33%;
+  }
+}
+
+/* Десктопы (1024px и выше) */
+@media (min-width: 1024px) {
+  .embla {
+    --slide-size: 25%;
+  }
+}
+
+/* Большие экраны (1280px и выше) */
+@media (min-width: 1280px) {
+  .embla {
+    --slide-size: 20%;
+  }
+}
+
 .embla__viewport {
   overflow: hidden;
 }

@@ -52,22 +52,19 @@ const Portfolio = () => {
   const currentTracks = playlistData[selectedCategory][selectedGenre];
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-20 px-4">
+    <section className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-0.5 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-white text-center mb-3 mt-12 uppercase">
           Мои работы
         </h1>
 
         {/* Карточки в виде веера */}
-        <div className="relative h-[600px] flex items-center justify-between">
+        <div className="relative hidden sm: h-auto sm:flex flex-wrap justify-center gap-4 md:gap-8">
           {portfolioCards.map((card, index) => (
             <div
               key={card.genre}
-              className={`w-85 transition-all duration-300 hover:scale-110 cursor-pointer`}
+              className={`w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 transition-all duration-300 hover:scale-105 cursor-pointer`}
               style={{
-                // left: `${25 + index * 25}%`,
-                // top: '50%',
-                // transform: `translate(-50%, -50%) rotate(${-15 + index * 15}deg)`,
                 zIndex: index,
               }}
               onClick={() => handleCardClick(card.genre, card.category)}
@@ -82,7 +79,7 @@ const Portfolio = () => {
                 />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-white mb-3">{card.title}</h3>
-                  <p className="text-gray-400 text-lg">{card.description}</p>
+                  <p className="text-gray-400 text-lg h-[55px]">{card.description}</p>
                 </div>
               </div>
             </div>
@@ -96,10 +93,10 @@ const Portfolio = () => {
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
           />
-          <div className="flex flex-col md:flex-row gap-10">
-            {/* Левая часть: текст и треки */}
-            <div className="flex-1 flex flex-col">
-              <div>
+          <div className="flex flex-col gap-10">
+            {/* Верхняя часть: название и обложка */}
+            <div className="flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
+              <div className="flex-1">
                 <PlayerTitle
                   artist={currentTrack?.artist}
                   title={currentTrack?.title}
@@ -113,27 +110,36 @@ const Portfolio = () => {
                   onSeek={handleSeek}
                 />
               </div>
-              <Playlist
-                selectedCategory={selectedCategory}
-                selectedGenre={selectedGenre}
-                currentTrack={currentTrack || undefined}
-                onCategoryChange={setSelectedCategory}
-                onGenreChange={setSelectedGenre}
-                onTrackSelect={handleTrackSelect}
-                tracks={currentTracks}
-              />
+              {/* Обложка альбома - видна от 460px */}
+              <div className="hidden min-[460px]:block">
+                <Image
+                  src={genreToImage[selectedGenre]}
+                  alt="Album Cover"
+                  width={192}
+                  height={192}
+                  className="w-48 h-48 rounded-xl object-cover shadow-lg"
+                />
+              </div>
             </div>
-            {/* Правая часть: обложка и контролы */}
-            <div className="flex flex-col items-center justify-center gap-8">
-              <Image
-                src={genreToImage[selectedGenre]}
-                alt="Album Cover"
-                width={192}
-                height={192}
-                className="w-48 h-48 rounded-xl object-cover shadow-lg mb-4"
-              />
-              <PlayerControls onPlay={handlePlay} isPlaying={isPlaying} />
-              <VolumeControl volume={volume} onVolumeChange={handleVolumeChange} />
+
+            {/* Нижняя часть: плейлист и контролы */}
+            <div className="flex flex-col md:flex-row gap-10">
+              <div className="flex-1">
+                <Playlist
+                  selectedCategory={selectedCategory}
+                  selectedGenre={selectedGenre}
+                  currentTrack={currentTrack || undefined}
+                  onCategoryChange={setSelectedCategory}
+                  onGenreChange={setSelectedGenre}
+                  onTrackSelect={handleTrackSelect}
+                  tracks={currentTracks}
+                />
+              </div>
+              {/* Контролы - видны только на десктопе */}
+              <div className="hidden lg:flex flex-col items-center justify-center gap-8">
+                <PlayerControls onPlay={handlePlay} isPlaying={isPlaying} />
+                <VolumeControl volume={volume} onVolumeChange={handleVolumeChange} />
+              </div>
             </div>
           </div>
         </div>

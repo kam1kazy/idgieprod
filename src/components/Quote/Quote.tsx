@@ -5,7 +5,7 @@ const Quote: React.FC = () => {
     <section className="-z-1 relative pb-30 pt-20 bg-gradient-to-t from-black to-gray-900">
       <div className="max-w-[81.25rem] px-4 mx-auto">
         <div className="flex justify-center">
-          <p className="text-white max-w-max text-[2.1rem] font-(family-name:--font-gunny-rewritten-variable) leading-relaxed">
+          <p className="text-xl sm:text-2xl md:text-[2.1rem] font-(family-name:--font-gunny-rewritten-variable) leading-relaxed">
             <br />
             Плагинов сейчас полно.
             <br />
