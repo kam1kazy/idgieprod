@@ -95,7 +95,7 @@ const Portfolio = () => {
           />
           <div className="flex flex-col gap-10">
             {/* Верхняя часть: название и обложка */}
-            <div className="flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
+            <div className="z-1 flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
               <div className="flex-1">
                 <PlayerTitle
                   artist={currentTrack?.artist}
