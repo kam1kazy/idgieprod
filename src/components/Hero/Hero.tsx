@@ -18,7 +18,13 @@ const Hero: React.FC<IProps> = ({ handleOpenModal, isModalOpen }: IProps) => {
 
       {/* Фоновое изображение */}
       <div className="absolute inset-0 mt-[0] ml-[auto] mr-[auto] w-full">
-        <Image src="/images/hero.png" alt="Background" fill className="object-contain" priority />
+        <Image
+          src="/images/idgie/hero.png"
+          alt="Background"
+          fill
+          className="object-contain"
+          priority
+        />
       </div>
       <div className={`absolute inset-0 ${isModalOpen ? 'bg-black/80' : 'bg-black/20'}`} />
     </section>

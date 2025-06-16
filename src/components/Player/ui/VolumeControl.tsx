@@ -8,9 +8,10 @@ import { useVolumeState } from '../hooks/useVolumeState';
 interface VolumeControlProps {
   volume: number;
   onVolumeChange: (volume: number) => void;
+  className?: string;
 }
 
-const VolumeControl: React.FC<VolumeControlProps> = ({ volume, onVolumeChange }) => {
+const VolumeControl: React.FC<VolumeControlProps> = ({ volume, onVolumeChange, className }) => {
   const { getVolumeIcon } = useVolumeIcon(volume);
   const { handleVolumeIconClick } = useVolumeState(volume, onVolumeChange);
   const volumeSliderRef = useRef<HTMLDivElement>(null);
@@ -50,7 +51,7 @@ const VolumeControl: React.FC<VolumeControlProps> = ({ volume, onVolumeChange })
 
   return (
     <div
-      className="flex items-center gap-3 w-32 h-[8.75rem] flex-col"
+      className={`flex items-center gap-3 w-32 h-[8.75rem] flex-col ${className}`}
       ref={volumeControlContainerRef}
     >
       <span

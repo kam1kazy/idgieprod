@@ -36,3 +36,25 @@ export const inspiration = localFont({
   ],
   variable: '--font-inspiration-variable',
 });
+
+export const gunnyRewritten = localFont({
+  src: [
+    {
+      path: '../../public/fonts/gunny-rewritten/gunny-rewritten.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-gunny-rewritten-variable',
+});
+
+export const marckScript = localFont({
+  src: [
+    {
+      path: '../../public/fonts/marck-script/marck-script.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-marck-script-variable',
+});

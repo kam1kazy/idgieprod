@@ -12,10 +12,28 @@ import Playlist from './ui/Playlist';
 import ProgressBar from './ui/ProgressBar';
 import VolumeControl from './ui/VolumeControl';
 
-const genreToImage: Record<Genre, string> = {
+export const genreToImage: Record<Genre, string> = {
   POP: '/images/genres/pop.png',
   'HIP-HOP': '/images/genres/hip-hop.png',
   ROCK: '/images/genres/rock.png',
+};
+
+export const yandexLinks: Record<Category, Record<Genre, string>> = {
+  'Сведение-мастеринг': {
+    ROCK: 'https://music.yandex.ru/users/idgie.prod/playlists/1008',
+    POP: 'https://music.yandex.ru/users/idgie.prod/playlists/1007',
+    'HIP-HOP': 'https://music.yandex.ru/users/idgie.prod/playlists/1006',
+  },
+  'Песни под ключ': {
+    'HIP-HOP': 'https://music.yandex.ru/users/idgie.prod/playlists/1005',
+    POP: 'https://music.yandex.ru/users/idgie.prod/playlists/1004',
+    ROCK: 'https://music.yandex.ru/users/idgie.prod/playlists/1003',
+  },
+  Аранжировка: {
+    'HIP-HOP': 'https://music.yandex.ru/users/idgie.prod/playlists/1002',
+    POP: 'https://music.yandex.ru/users/idgie.prod/playlists/1001',
+    ROCK: 'https://music.yandex.ru/users/idgie.prod/playlists/1000',
+  },
 };
 
 interface WorksModalProps {
@@ -31,6 +49,8 @@ const WorksModal: React.FC<WorksModalProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
+
+  const yandexLink = yandexLinks[selectedCategory][selectedGenre];
 
   const {
     audioRef,
@@ -104,7 +124,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
                 <PlayerTitle
                   artist={currentTrack?.artist}
                   title={currentTrack?.title}
-                  album={currentTrack?.album}
+                  link={yandexLink}
                 />
                 {currentTrack?.feat && (
                   <div className="text-gray-300 mb-6">ft. {currentTrack?.feat}</div>

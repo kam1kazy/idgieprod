@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import GlowEffect from '@/components/GlowEffect/GlowEffect';
 import { PlayerProvider } from '@/components/Player/context/PlayerContext';
 
-import { inspiration, ntSomic, ntSomicVariable } from './fonts';
+import { gunnyRewritten, inspiration, marckScript, ntSomic, ntSomicVariable } from './fonts';
 
 export const metadata: Metadata = {
   title: 'IDGIE.Prod',
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body
-        className={`${ntSomic.variable} ${ntSomicVariable.variable} ${inspiration.variable} antialiased`}
+        className={`${ntSomic.variable} ${ntSomicVariable.variable} ${inspiration.variable} ${gunnyRewritten.variable} ${marckScript.variable} antialiased`}
       >
         <GlowEffect />
         <PlayerProvider>{children}</PlayerProvider>

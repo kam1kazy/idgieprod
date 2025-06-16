@@ -3,13 +3,14 @@ import Image from 'next/image';
 interface PlayerControlsProps {
   onPlay: () => void;
   isPlaying: boolean;
+  className?: string;
 }
 
-const PlayerControls: React.FC<PlayerControlsProps> = ({ onPlay, isPlaying }) => {
+const PlayerControls: React.FC<PlayerControlsProps> = ({ onPlay, isPlaying, className }) => {
   const plActive = !isPlaying ? 'pl-[0.188rem]' : 'pl-[0]';
 
   return (
-    <div className="flex items-center gap-6">
+    <div className={`flex items-center gap-6 ${className}`}>
       <button
         onClick={onPlay}
         className={`w-12 h-12 flex items-center justify-center rounded-full bg-white text-gray-900 shadow-lg hover:scale-105 transition cursor-[pointer] ${plActive}`}

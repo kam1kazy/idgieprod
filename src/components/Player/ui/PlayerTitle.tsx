@@ -1,14 +1,19 @@
 interface PlayerTitleProps {
   artist?: string;
   title?: string;
-  album?: string;
+  link: string;
 }
 
-const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, album }) => {
+const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, link }) => {
   return (
     <>
-      {/* <div className="text-sm text-[#047cb9] mb-2">Послушать в Яндекс.Музыки</div> */}
-      {album && <div className="text-sm text-[#047cb9] mb-2">{album}</div>}
+      {link && (
+        <div className="text-sm text-[#047cb9] mb-2">
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            Полный список в Яндекс.Музыки
+          </a>
+        </div>
+      )}
       <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
         {title ? `${artist} - ${title}` : 'Выберите трек'}
       </h1>

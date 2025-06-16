@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
 
             {/* YouTube */}
             <a
-              href="https://youtube.com/your-channel"
+              href="https://www.youtube.com/@the_idgie"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#FF0000] p-3 rounded-full hover:opacity-80 transition-opacity"

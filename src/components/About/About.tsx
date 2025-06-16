@@ -1,34 +1,8 @@
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-
-import { updatePosition } from './hooks/updatePosition';
 
 const About: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    let animationFrameId: number;
-
-    const animate = () => {
-      updatePosition({ sectionRef, titleRef });
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animationFrameId = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative text-white pt-8 md:pt-40 pb-4 md:pb-20 bg-gradient-to-b from-black to-gray-900 z-[-1]"
-    >
+    <section className="relative text-white pt-8 md:pt-40 pb-4 md:pb-20 bg-gradient-to-b from-black to-gray-900 z-[-1]">
       {/* Gradient Overlay */}
       <div className="w-full flex-col max-w-[81.25rem] px-4 mx-auto flex justify-center relative z-20">
         <h2 className="text-white mb-[2.8rem] text-[3rem] sm:text-[4rem] md:text-[4.875rem] font-bold">
@@ -39,14 +13,18 @@ const About: React.FC = () => {
           <div className="flex-col items-center lg:items-start text-center lg:text-left max-w-[25rem] lg:max-w-[30rem] flex-shrink-0">
             <div className="relative w-full h-[16rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] max-w-[25rem] lg:max-w-[30rem]">
               <Image
-                src="/images/idgie-crop.jpg"
+                src="/images/idgie/idgie-crop.jpg"
                 alt="Дмитрий Эбергарт"
                 fill
                 className="object-cover rounded-lg shadow-md"
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'top',
+                }}
               />
             </div>
             <h3 className="text-white text-3xl font-bold mt-8">ДМИТРИЙ ЭБЕРГАРТ aka IDGIE</h3>
-            <p className="text-gray-300 text-[1.6rem] italic mt-4 font-(family-name:--font-inspiration-variable)">
+            <p className="text-gray-300 text-[2.1rem] italic mt-4 font-(family-name:--font-gunny-rewritten-variable)">
               Музыка - мой дом. Заходи, пожалуйста. <br /> Я точно знаю, как в нём строить хиты!
             </p>
           </div>

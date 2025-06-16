@@ -9,17 +9,14 @@ import PlayerTitle from '../Player/ui/PlayerTitle';
 import Playlist from '../Player/ui/Playlist';
 import ProgressBar from '../Player/ui/ProgressBar';
 import VolumeControl from '../Player/ui/VolumeControl';
+import { genreToImage, yandexLinks } from '../Player/WorksModal';
 import { portfolioCards } from './content/PortfolioList';
-
-const genreToImage: Record<Genre, string> = {
-  POP: '/images/genres/pop.png',
-  'HIP-HOP': '/images/genres/hip-hop.png',
-  ROCK: '/images/genres/rock.png',
-};
 
 const Portfolio = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
   const [selectedCategory, setSelectedCategory] = useState<Category>('Песни под ключ');
+
+  const yandexLink = yandexLinks[selectedCategory][selectedGenre];
 
   const {
     audioRef,
@@ -45,7 +42,7 @@ const Portfolio = () => {
     } else {
       setShowMiniPlayer(false);
     }
-  }, [isPlaying]);
+  }, [isPlaying, setShowMiniPlayer]);
 
   const handleCardClick = (genre: Genre, category: Category) => {
     setSelectedGenre(genre);
@@ -106,7 +103,7 @@ const Portfolio = () => {
                 <PlayerTitle
                   artist={currentTrack?.artist}
                   title={currentTrack?.title}
-                  album={currentTrack?.album}
+                  link={yandexLink}
                 />
                 <div className="text-gray-300 mb-6">{selectedGenre}</div>
                 <ProgressBar

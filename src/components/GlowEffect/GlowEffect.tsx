@@ -7,6 +7,25 @@ import styles from './GlowEffect.module.css';
 const GlowEffect: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
 
+  {
+    /*
+      baseRadius: базовый радиус свечения
+      radiusVariation: вариация радиуса
+      baseScale: базовый масштаб
+      scaleVariation: вариация масштаба
+      translateVariation: вариация перемещения
+  */
+  }
+
+  // Константы для настройки размеров свечения
+  const GLOW_SIZE = {
+    baseRadius: 60,
+    radiusVariation: 30,
+    baseScale: 1,
+    scaleVariation: 0.15,
+    translateVariation: 60,
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -19,13 +38,13 @@ const GlowEffect: React.FC = () => {
   }, []);
 
   const glowLeftStyle = {
-    transform: `translateY(${scrollY * 0.25}px) translateX(${Math.sin(scrollY * 0.006) * 60}px) scale(${1 + Math.sin(scrollY * 0.0025) * 0.15})`,
-    borderRadius: `${40 + Math.sin(scrollY * 0.004) * 30}% ${60 + Math.cos(scrollY * 0.005) * 30}% ${40 + Math.sin(scrollY * 0.006) * 30}% ${60 + Math.cos(scrollY * 0.007) * 30}% / ${70 + Math.cos(scrollY * 0.0035) * 25}% ${30 + Math.sin(scrollY * 0.0045) * 25}% ${70 + Math.cos(scrollY * 0.0055) * 25}% ${30 + Math.sin(scrollY * 0.0065) * 25}%`,
+    transform: `translateY(${scrollY * 0.25}px) translateX(${Math.sin(scrollY * 0.006) * GLOW_SIZE.translateVariation}px) scale(${GLOW_SIZE.baseScale + Math.sin(scrollY * 0.0025) * GLOW_SIZE.scaleVariation})`,
+    borderRadius: `${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.004) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.005) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.006) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.007) * GLOW_SIZE.radiusVariation}% / ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0035) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0045) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0055) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0065) * GLOW_SIZE.radiusVariation}%`,
   };
 
   const glowRightStyle = {
-    transform: `translateY(${scrollY * 0.15}px) translateX(${Math.cos(scrollY * 0.008) * 50}px) scale(${1 + Math.cos(scrollY * 0.0035) * 0.1})`,
-    borderRadius: `${60 + Math.cos(scrollY * 0.003) * 30}% ${40 + Math.sin(scrollY * 0.004) * 30}% ${60 + Math.cos(scrollY * 0.005) * 30}% ${40 + Math.sin(scrollY * 0.006) * 30}% / ${30 + Math.sin(scrollY * 0.0025) * 25}% ${70 + Math.cos(scrollY * 0.0035) * 25}% ${30 + Math.sin(scrollY * 0.0045) * 25}% ${70 + Math.cos(scrollY * 0.0055) * 25}%`,
+    transform: `translateY(${scrollY * 0.15}px) translateX(${Math.cos(scrollY * 0.008) * GLOW_SIZE.translateVariation}px) scale(${GLOW_SIZE.baseScale + Math.cos(scrollY * 0.0035) * GLOW_SIZE.scaleVariation})`,
+    borderRadius: `${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.003) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.004) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.005) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.006) * GLOW_SIZE.radiusVariation}% / ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0025) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0035) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0045) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0055) * GLOW_SIZE.radiusVariation}%`,
   };
 
   return (
