@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, ReactNode, useContext, useRef, useState } from 'react';
+import { createContext, ReactNode, useContext, useRef, useState } from 'react';
 
 import { Track } from '../songList';
 

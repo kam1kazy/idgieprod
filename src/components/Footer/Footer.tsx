@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaInstagram, FaTelegram, FaYoutube } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
@@ -8,10 +7,10 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center justify-center space-y-6">
           {/* Email */}
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:idgie.prod@yandex.ru"
             className="text-base sm:text-lg text-white hover:text-gray-300 transition-colors"
           >
-            your.email@example.com
+            idgie.prod@yandex.ru
           </a>
 
           {/* Social Links */}
@@ -28,7 +27,7 @@ const Footer: React.FC = () => {
 
             {/* Telegram */}
             <a
-              href="t.me/idgieprod"
+              href="https://t.me/idgieprod"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#0088cc] p-3 rounded-full hover:opacity-80 transition-opacity"

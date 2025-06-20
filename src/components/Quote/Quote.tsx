@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Quote: React.FC = () => {
   return (
     <section className="-z-1 relative pb-30 pt-20 bg-gradient-to-t from-black to-gray-900">

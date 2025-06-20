@@ -26,9 +26,6 @@ const About: React.FC = () => {
             <h3 className="text-white text-1xl lg:text-2xl font-bold mt-8">
               ДМИТРИЙ ЭБЕРГАРТ aka IDGIE
             </h3>
-            <p className="text-gray-300 text-[1.4rem] lg:text-[2.1rem] italic mt-4 font-(family-name:--font-gunny-rewritten-variable)">
-              Музыка - мой дом. Заходи, пожалуйста. <br /> Я точно знаю, как в нём строить хиты!
-            </p>
           </div>
 
           {/* Text Content */}
@@ -40,7 +37,7 @@ const About: React.FC = () => {
               Продюсер. Сонграйтер. Звукорежиссёр. Артист. Человек и пароход.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-9  text-center lg:text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center lg:text-left">
               <div className="">
                 <p className="text-orange-500 text-5xl font-bold">1000+</p>
                 <p className="text-gray-500 text-[1.4rem] text-base">аранжировок</p>
@@ -68,6 +65,10 @@ const About: React.FC = () => {
             </p>
           </div>
         </div>
+
+        <p className="text-gray-300 text-center text-[1.4rem] lg:text-[2.1rem] mt-20 font-(family-name:--font-gunny-rewritten-variable)">
+          Музыка - мой дом. Заходи, пожалуйста. Я точно знаю, как в нём строить хиты!
+        </p>
       </div>
     </section>
   );
