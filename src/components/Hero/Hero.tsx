@@ -17,9 +17,9 @@ const Hero: React.FC<IProps> = ({ handleOpenModal, isModalOpen }: IProps) => {
       </div>
 
       {/* Фоновое изображение */}
-      <div className="absolute inset-0 mt-[0] ml-[auto] mr-[auto] w-full">
+      <div className="absolute lg:h-[890px] xl:h-[1250px] b-[-30px] inset-0 mt-[0] ml-[auto] mr-[auto] w-full">
         <Image
-          src="/images/idgie/hero.png"
+          src="/images/idgie/hero7.png"
           alt="Background"
           fill
           className="object-contain"
