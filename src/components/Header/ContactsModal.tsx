@@ -43,12 +43,12 @@ const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
               <div>
                 <div className="text-white font-medium">Telegram</div>
                 <a
-                  href="https://t.me/your_username"
+                  href="https://t.me/idgieprod"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
                 >
-                  @your_username
+                  @idgieprod
                 </a>
               </div>
             </div>
@@ -68,12 +68,37 @@ const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
               <div>
                 <div className="text-white font-medium">Instagram</div>
                 <a
-                  href="https://instagram.com/your_username"
+                  href="https://instagram.com/the_idgie"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
                 >
-                  @your_username
+                  @the_idgie
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-[#047cb9]/20 flex items-center justify-center">
+                <span className="relative w-6 h-6">
+                  <Image
+                    src="/images/icons/youtube.svg"
+                    alt="email"
+                    fill
+                    priority
+                    className="[filter:brightness(0)_invert(1)]"
+                  />
+                </span>
+              </div>
+              <div>
+                <div className="text-white font-medium">YouTube</div>
+                <a
+                  href="https://instagram.com/the_idgie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
+                >
+                  @the_idgie
                 </a>
               </div>
             </div>
@@ -93,10 +118,10 @@ const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
               <div>
                 <div className="text-white font-medium">Email</div>
                 <a
-                  href="mailto:your@email.com"
+                  href="mailto:idgie.prod@yandex.ru"
                   className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
                 >
-                  your@email.com
+                  idgie.prod@yandex.ru
                 </a>
               </div>
             </div>

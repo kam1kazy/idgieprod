@@ -30,7 +30,12 @@ const Playlist: React.FC<PlaylistProps> = ({
         onCategoryChange={onCategoryChange}
         onGenreChange={onGenreChange}
       />
-      <TrackList tracks={tracks} onTrackSelect={onTrackSelect} currentTrack={currentTrack} />
+      <TrackList
+        tracks={tracks}
+        onTrackSelect={onTrackSelect}
+        currentTrack={currentTrack}
+        category={selectedCategory}
+      />
     </div>
   );
 };

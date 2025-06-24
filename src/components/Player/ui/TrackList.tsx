@@ -6,12 +6,13 @@ interface TrackListProps {
   tracks: Track[];
   onTrackSelect: (track: Track) => void;
   currentTrack?: Track;
+  category: string;
 }
 
-const TrackList: React.FC<TrackListProps> = ({ tracks, onTrackSelect, currentTrack }) => {
+const TrackList: React.FC<TrackListProps> = ({ tracks, onTrackSelect, currentTrack, category }) => {
   return (
     <div>
-      <div className="font-semibold text-white mb-2">Twentyone Astronaut</div>
+      <div className="font-semibold text-white mb-2">{category}</div>
       <ul className="space-y-2">
         {tracks.map((track) => (
           <li

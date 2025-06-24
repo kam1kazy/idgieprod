@@ -14,7 +14,7 @@ const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, link }) => {
           </a>
         </div>
       )}
-      <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
+      <h1 className="text-xl sm:text-2xl md:text-5xl font-bold text-white mb-2 leading-tight">
         {title ? `${artist} - ${title}` : 'Выберите трек'}
       </h1>
     </>

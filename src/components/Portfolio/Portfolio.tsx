@@ -54,7 +54,7 @@ const Portfolio = () => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-0.5 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-white text-center mb-15 mt-12 uppercase">
+        <h1 className="text-4xl font-bold text-white text-center mb-5 md:mb-15 mt-12 uppercase">
           Мои работы
         </h1>
 
@@ -93,7 +93,7 @@ const Portfolio = () => {
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
           />
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-0 md:gap-10 ">
             {/* Верхняя часть: название и обложка */}
             <div className="z-1 flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
               <div className="flex-1">

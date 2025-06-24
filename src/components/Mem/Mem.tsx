@@ -11,7 +11,7 @@ const Mem: React.FC = () => {
             <p className="text-orange-500 text-4xl sm:text-5xl md:text-[3.6rem] font-bold">
               Лучший <br /> работник месяца
             </p>
-            <p className="text-gray-300 text-sm sm:text-base md:text-[1.8rem] font-(family-name:--font-gunny-rewritten-variable) leading-relaxed mb-2">
+            <p className="text-gray-300 text-[1.8rem] md:text-[1.8rem] font-(family-name:--font-gunny-rewritten-variable) leading-relaxed mb-2">
               Музыка — не фастфуд. <br /> Это высокая кухня. <br /> И я — тот, кто готовит под тебя.
             </p>
           </div>
