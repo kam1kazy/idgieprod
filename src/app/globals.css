@@ -59,9 +59,7 @@ body {
 html,
 body {
   background: #000 !important;
-}
-.contacts-btn {
-  color: #fff !important;
+  color: #fff;
 }
 
 /* Стили для аудиоплеера */

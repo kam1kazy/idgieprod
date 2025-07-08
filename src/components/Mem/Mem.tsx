@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Mem: React.FC = () => {
   return (
-    <section className="relative text-white pt-8 md:pt-40 pb-4 md:pb-20 z-[-1]">
+    <section className="relative text-white pt-8 md:pt-40 pb-4 md:pb-20">
       {/* Gradient Overlay */}
       <div className="w-full flex-col max-w-[81.25rem] px-4 mx-auto flex justify-center relative z-20">
         <div className="relative flex flex-col lg:flex-row items-center justify-center gap-8 w-full md:gap-[4.375rem] md:text-center">

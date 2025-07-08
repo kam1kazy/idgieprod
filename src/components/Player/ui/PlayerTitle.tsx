@@ -24,7 +24,7 @@ const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, link, imgSrc }
           </p>
         </div>
 
-        <div className="min-[460px]:block">
+        <div className="block min-[460px]:hidden">
           <Image
             src={imgSrc}
             alt="Album Cover"
