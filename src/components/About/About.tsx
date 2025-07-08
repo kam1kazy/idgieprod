@@ -70,9 +70,12 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <p className="text-white underline text-center text-[1.4rem] lg:text-[2.1rem] mt-20 mb-10 font-(family-name:--font-gunny-rewritten-variable)">
-          Музыка - мой дом. Заходи, пожалуйста. Я точно знаю, как в нём строить хиты!
-        </p>
+        <div className="relative  mx-auto mt-20 mb-10 px-8 py-8 bg-white/10 rounded-xl border-l-4 border-[#fff] shadow-lg flex gap-4">
+          <img src="/images/icons/quote.svg" alt="quote" className="w-10 h-10 opacity-80" />
+          <p className="text-white text-[1.2rem] lg:text-[1.5rem] font-[var(--font-gunny-rewritten-variable)] italic">
+            Музыка — мой дом. Заходи, пожалуйста. Я точно знаю, как в нём строить хиты!
+          </p>
+        </div>
       </div>
     </section>
   );
