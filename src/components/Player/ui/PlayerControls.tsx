@@ -15,7 +15,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ onPlay, isPlaying, clas
         onClick={onPlay}
         className={`w-12 h-12 flex items-center justify-center rounded-full bg-white text-gray-900 shadow-lg hover:scale-105 transition cursor-[pointer] ${plActive}`}
       >
-        <span className="relative w-6 h-6">
+        <span className="relative ml-[4px] w-6 h-6">
           <Image
             src={isPlaying ? '/images/icons/stop.svg' : '/images/icons/play.svg'}
             alt={isPlaying ? 'stop' : 'play'}
