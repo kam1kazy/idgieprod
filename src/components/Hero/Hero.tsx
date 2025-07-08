@@ -22,8 +22,7 @@ const Hero: React.FC<IProps> = ({ handleOpenModal, isModalOpen }: IProps) => {
           src="/images/idgie/hero.png"
           alt="Background"
           fill
-          className="object-cover lg:object-contain"
-          style={{ objectPosition: '33%' }}
+          className="object-cover lg:object-contain object-[33%] sm:object-[center]"
           priority
         />
       </div>
