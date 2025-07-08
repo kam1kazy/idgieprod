@@ -26,6 +26,8 @@ const GlowEffect: React.FC = () => {
     translateVariation: 60,
   };
 
+  const offsetX = 120; // Базовое смещение влево/вправо
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -38,12 +40,28 @@ const GlowEffect: React.FC = () => {
   }, []);
 
   const glowLeftStyle = {
-    transform: `translateY(${scrollY * 0.25}px) translateX(${Math.sin(scrollY * 0.006) * GLOW_SIZE.translateVariation}px) scale(${GLOW_SIZE.baseScale + Math.sin(scrollY * 0.0025) * GLOW_SIZE.scaleVariation})`,
+    transform: `
+      translateY(${scrollY * 0.25}px)
+      translateX(${
+        -offsetX + // базовое смещение влево
+        Math.sin(scrollY * 0.006) * GLOW_SIZE.translateVariation + // "змейка"
+        Math.sin(scrollY * 0.002) * offsetX * 0.7 // сближение/расхождение к центру
+      }px)
+      scale(${GLOW_SIZE.baseScale + Math.sin(scrollY * 0.0025) * GLOW_SIZE.scaleVariation})
+    `,
     borderRadius: `${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.004) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.005) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.006) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.007) * GLOW_SIZE.radiusVariation}% / ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0035) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0045) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0055) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0065) * GLOW_SIZE.radiusVariation}%`,
   };
 
   const glowRightStyle = {
-    transform: `translateY(${scrollY * 0.15}px) translateX(${Math.cos(scrollY * 0.008) * GLOW_SIZE.translateVariation}px) scale(${GLOW_SIZE.baseScale + Math.cos(scrollY * 0.0035) * GLOW_SIZE.scaleVariation})`,
+    transform: `
+      translateY(${scrollY * 0.15}px)
+      translateX(${
+        offsetX + // базовое смещение вправо
+        Math.cos(scrollY * 0.008) * GLOW_SIZE.translateVariation + // "змейка"
+        -Math.sin(scrollY * 0.002) * offsetX * 0.7 // сближение/расхождение к центру
+      }px)
+      scale(${GLOW_SIZE.baseScale + Math.cos(scrollY * 0.0035) * GLOW_SIZE.scaleVariation})
+    `,
     borderRadius: `${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.003) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.004) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.005) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.006) * GLOW_SIZE.radiusVariation}% / ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0025) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0035) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.sin(scrollY * 0.0045) * GLOW_SIZE.radiusVariation}% ${GLOW_SIZE.baseRadius + Math.cos(scrollY * 0.0055) * GLOW_SIZE.radiusVariation}%`,
   };
 
