@@ -93,7 +93,7 @@ const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
               <div>
                 <div className="text-white font-medium">YouTube</div>
                 <a
-                  href="https://instagram.com/the_idgie"
+                  href="https://www.youtube.com/@the_idgie"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
