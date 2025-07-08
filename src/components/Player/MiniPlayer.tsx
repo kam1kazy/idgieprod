@@ -29,11 +29,11 @@ const MiniPlayer: React.FC<MiniPlayerProps> = ({ isVisible, onStop }) => {
 
   return (
     <div
-      className={`fixed z-[2] top-4 right-[auto] left-[auto] w-[80%] z-[1000] ${isAnimating ? 'animate-fade-in' : 'animate-fade-out'}`}
+      className={`fixed z-[2] top-4 right-[auto] left-[auto] w-full sm:w-[80%] z-[1000] ${isAnimating ? 'animate-fade-in' : 'animate-fade-out'}`}
     >
       <button
         onClick={onStop}
-        className="flex cursor-pointer items-center gap-2 bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full text-white hover:bg-gray-700/80 transition-colors ml-[59%] "
+        className="flex shadow-[0 0 20px #bdbfe1b3] cursor-pointer items-center m-auto md:m-[auto] sm:ml-[59%] gap-2 bg-gray-700/80 backdrop-blur-sm px-4 py-2 rounded-full text-white hover:bg-gray-700/80 transition-colors"
       >
         <span className="relative w-4 h-4">
           <Image

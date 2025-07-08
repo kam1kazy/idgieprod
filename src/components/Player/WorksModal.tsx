@@ -125,6 +125,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
                   artist={currentTrack?.artist}
                   title={currentTrack?.title}
                   link={yandexLink}
+                  imgSrc={genreToImage[selectedGenre]}
                 />
                 {currentTrack?.feat && (
                   <div className="text-gray-300 mb-6">ft. {currentTrack?.feat}</div>
@@ -149,7 +150,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
             </div>
 
             {/* Нижняя часть: плейлист и контролы */}
-            <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex flex-col md:flex-row gap-10 z-1">
               <div className="flex-1">
                 <Playlist
                   selectedCategory={selectedCategory}

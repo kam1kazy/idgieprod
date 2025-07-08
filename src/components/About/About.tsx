@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const About: React.FC = () => {
   return (
-    <section className="relative text-white pt-8 md:pt-40 pb-4 md:pb-20 bg-gradient-to-b from-black to-gray-900 z-[-1]">
+    <section className="relative text-white pt-8 md:pt-40 pb-4 md:pb-20 z-1">
       {/* Gradient Overlay */}
       <div className="w-full flex-col max-w-[81.25rem] px-4 mx-auto flex justify-center relative z-20">
         <h2 className="text-white mb-[2.8rem] text-4xl sm:text-[4rem] md:text-[4.875rem] font-bold ">
@@ -33,24 +33,24 @@ const About: React.FC = () => {
             <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed">
               30 лет. 14 лет в индустрии, 11 из них на проф. уровне
             </p>
-            <p className="text-white text-sm md:text-1xl font-bold mb-6">
+            <p className="text-white text-center text-[18px] m-[0 auto] text-sm md:text-1xl font-bold mb-6">
               Продюсер. Сонграйтер. Звукорежиссёр. Артист. Человек и пароход.
             </p>
 
             <div className="grid grid-cols-3 gap-4 text-center lg:text-left">
               <div>
-                <p className="text-orange-500 text-3xl sm:text-4xl md:text-5xl font-bold">1000+</p>
-                <p className="text-gray-500 text-base sm:text-lg md:text-[1.4rem]">аранжировок</p>
+                <p className="text-orange-500 text-4xl sm:text-4xl md:text-5xl font-bold">1000+</p>
+                <p className="text-gray-400 text-base sm:text-lg md:text-[1.4rem]">аранжировок</p>
               </div>
               <div>
-                <p className="text-orange-500 text-3xl sm:text-4xl md:text-5xl font-bold">1000+</p>
-                <p className="text-gray-500 text-base sm:text-lg md:text-[1.4rem]">
+                <p className="text-orange-500 text-4xl sm:text-4xl md:text-5xl font-bold">1000+</p>
+                <p className="text-gray-400 text-base sm:text-lg md:text-[1.4rem]">
                   сведенных треков
                 </p>
               </div>
               <div>
-                <p className="text-orange-500 text-3xl sm:text-4xl md:text-5xl font-bold">300+</p>
-                <p className="text-gray-500 text-base sm:text-lg md:text-[1.4rem]">
+                <p className="text-orange-500 text-4xl sm:text-4xl md:text-5xl font-bold">300+</p>
+                <p className="text-gray-400 text-base sm:text-lg md:text-[1.4rem]">
                   авторских песен
                 </p>
               </div>
@@ -70,7 +70,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <p className="text-gray-300 text-center text-[1.4rem] lg:text-[2.1rem] mt-20 font-(family-name:--font-gunny-rewritten-variable)">
+        <p className="text-white underline text-center text-[1.4rem] lg:text-[2.1rem] mt-20 mb-10 font-(family-name:--font-gunny-rewritten-variable)">
           Музыка - мой дом. Заходи, пожалуйста. Я точно знаю, как в нём строить хиты!
         </p>
       </div>

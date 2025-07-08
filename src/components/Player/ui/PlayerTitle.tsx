@@ -1,22 +1,39 @@
+import Image from 'next/image';
+
 interface PlayerTitleProps {
   artist?: string;
   title?: string;
   link: string;
+  imgSrc: string;
 }
 
-const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, link }) => {
+const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, link, imgSrc }) => {
   return (
     <>
-      {link && (
-        <div className="text-sm text-[#047cb9] mb-2">
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            Полный список в Яндекс.Музыки
-          </a>
+      <div className="flex">
+        <div className="w-[180px] mr-[10px] sm:w-[auto]">
+          {link && (
+            <div className="text-sm text-[#047cb9] mb-8">
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                Полный список в Яндекс.Музыки
+              </a>
+            </div>
+          )}
+          <p className="text-xl sm:text-2xl md:text-5xl font-bold text-white mb-2 leading-tight">
+            {title ? `${artist} - ${title}` : 'Выберите трек'}
+          </p>
         </div>
-      )}
-      <h1 className="text-xl sm:text-2xl md:text-5xl font-bold text-white mb-2 leading-tight">
-        {title ? `${artist} - ${title}` : 'Выберите трек'}
-      </h1>
+
+        <div className="min-[460px]:block">
+          <Image
+            src={imgSrc}
+            alt="Album Cover"
+            width={192}
+            height={70}
+            className="w-48 h-48 rounded-xl object-cover shadow-lg"
+          />
+        </div>
+      </div>
     </>
   );
 };

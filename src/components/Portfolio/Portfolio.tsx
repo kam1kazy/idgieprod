@@ -87,7 +87,7 @@ const Portfolio = () => {
         </div>
 
         {/* Встроенный плеер */}
-        <div className="mt-20 rounded-3xl p-8">
+        <div className="mt-5 rounded-3xl p-8">
           <audio
             ref={audioRef}
             onTimeUpdate={handleTimeUpdate}
@@ -96,11 +96,12 @@ const Portfolio = () => {
           <div className="flex flex-col gap-0 md:gap-10 ">
             {/* Верхняя часть: название и обложка */}
             <div className="z-1 flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
-              <div className="flex-1">
+              <div className="flex-1 w-full">
                 <PlayerTitle
                   artist={currentTrack?.artist}
                   title={currentTrack?.title}
                   link={yandexLink}
+                  imgSrc={genreToImage[selectedGenre]}
                 />
                 <div className="text-gray-300 mb-6">{selectedGenre}</div>
                 <ProgressBar
@@ -123,7 +124,7 @@ const Portfolio = () => {
             </div>
 
             {/* Нижняя часть: плейлист и контролы */}
-            <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex flex-col md:flex-row gap-1 z-1">
               <div className="flex-1">
                 <Playlist
                   selectedCategory={selectedCategory}
