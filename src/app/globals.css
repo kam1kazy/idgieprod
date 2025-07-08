@@ -56,6 +56,14 @@ body {
   animation: fadeOut 0.3s ease-out forwards;
 }
 
+html,
+body {
+  background: #000 !important;
+}
+.contacts-btn {
+  color: #fff !important;
+}
+
 /* Стили для аудиоплеера */
 input[type='range'] {
   -webkit-appearance: none;
