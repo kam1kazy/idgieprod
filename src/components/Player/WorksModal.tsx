@@ -6,6 +6,7 @@ import { Category, Genre, playlistData } from '@/components/Player/songList';
 import { usePlayer } from './context/PlayerContext';
 import { useTimeFormat } from './hooks/useTimeFormat';
 import MiniPlayer from './MiniPlayer';
+import MobilePlayerControls from './ui/MobilePlayerControls';
 import PlayerControls from './ui/PlayerControls';
 import PlayerTitle from './ui/PlayerTitle';
 import Playlist from './ui/Playlist';
@@ -99,7 +100,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
     <>
       <MiniPlayer isVisible={showMiniPlayer} onStop={handleStop} />
       <section
-        className={`fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-[#06090bbf]/75 backdrop-blur-md transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[999] grid h-screen w-screen items-start sm:place-items-center bg-[#06090bbf]/75 backdrop-blur-md transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-all' : 'opacity-0 pointer-events-none '
         }`}
         onClick={onClose}
@@ -119,7 +120,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
           />
           <div className="flex flex-col gap-10">
             {/* Верхняя часть: название и обложка */}
-            <div className="z-1 flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
+            <div className="z-1 flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-0">
               <div className="flex-1">
                 <PlayerTitle
                   artist={currentTrack?.artist}
@@ -144,11 +145,12 @@ const WorksModal: React.FC<WorksModalProps> = ({
                   alt="Album Cover"
                   width={192}
                   height={192}
-                  className="w-48 h-48 rounded-xl object-cover shadow-lg"
+                  className="w-48 h-48 rounded-xl objec t-cover shadow-lg"
                 />
               </div>
+              {/* Мобильные контролы */}
+              <MobilePlayerControls tracks={currentTracks} />
             </div>
-
             {/* Нижняя часть: плейлист и контролы */}
             <div className="flex flex-col md:flex-row gap-10 z-1">
               <div className="flex-1">

@@ -20,6 +20,8 @@ interface PlayerContextType {
   handleVolumeChange: (value: number) => void;
   handleStop: () => void;
   setShowMiniPlayer: (show: boolean) => void;
+  handlePrevTrack: (tracks: Track[]) => void;
+  handleNextTrack: (tracks: Track[]) => void;
 }
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -87,6 +89,24 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     }
   };
 
+  const handlePrevTrack = (tracks: Track[]) => {
+    if (!currentTrack || tracks.length === 0) {
+      return;
+    }
+    const idx = tracks.findIndex((t) => t.src === currentTrack.src);
+    const prevIdx = idx > 0 ? idx - 1 : tracks.length - 1;
+    handleTrackSelect(tracks[prevIdx]);
+  };
+
+  const handleNextTrack = (tracks: Track[]) => {
+    if (!currentTrack || tracks.length === 0) {
+      return;
+    }
+    const idx = tracks.findIndex((t) => t.src === currentTrack.src);
+    const nextIdx = idx < tracks.length - 1 ? idx + 1 : 0;
+    handleTrackSelect(tracks[nextIdx]);
+  };
+
   const value = {
     isPlaying,
     currentTrack,
@@ -103,6 +123,8 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     handleVolumeChange,
     handleStop,
     setShowMiniPlayer,
+    handlePrevTrack,
+    handleNextTrack,
   };
 
   return <PlayerContext.Provider value={value}>{children}</PlayerContext.Provider>;

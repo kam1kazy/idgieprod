@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePlayer } from '../Player/context/PlayerContext';
 import { useTimeFormat } from '../Player/hooks/useTimeFormat';
 import { Category, Genre, playlistData } from '../Player/songList';
+import MobilePlayerControls from '../Player/ui/MobilePlayerControls';
 import PlayerControls from '../Player/ui/PlayerControls';
 import PlayerTitle from '../Player/ui/PlayerTitle';
 import Playlist from '../Player/ui/Playlist';
@@ -122,7 +123,8 @@ const Portfolio = () => {
                 />
               </div>
             </div>
-
+            {/* Мобильные контролы */}
+            <MobilePlayerControls tracks={currentTracks} />
             {/* Нижняя часть: плейлист и контролы */}
             <div className="flex flex-col md:flex-row gap-1 z-1">
               <div className="flex-1">
