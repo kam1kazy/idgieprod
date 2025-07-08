@@ -1,15 +1,16 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
-import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import next from 'eslint-config-next';
+import prettier from 'eslint-plugin-prettier';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import prettier from 'eslint-plugin-prettier';
-import globals from 'globals';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import { defineConfig } from 'eslint/config';
+import globals from 'globals';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,6 +21,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = defineConfig([
+  next(),
   {
     ignores: [
       'node_modules/**',
@@ -40,7 +42,9 @@ const eslintConfig = defineConfig([
       'next/typescript',
       'plugin:react/recommended',
       'plugin:react-hooks/recommended',
-      'plugin:prettier/recommended'
+      'plugin:prettier/recommended',
+      'next',
+      'next/core-web-vitals'
     ),
     plugins: {
       '@typescript-eslint': typescriptEslint,
