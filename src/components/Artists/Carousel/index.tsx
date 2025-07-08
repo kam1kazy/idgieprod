@@ -54,7 +54,7 @@ const Carousel: React.FC<PropType> = (props) => {
             ))}
           </div>
         </div>
-        <div className="embla__controls">
+        <div className="embla__controls justify-center sm:justify-start">
           <div className="embla__buttons">
             <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
             <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />

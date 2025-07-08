@@ -11,7 +11,7 @@ const About: React.FC = () => {
         <div className="relative flex flex-col lg:flex-row items-start justify-between gap-8 md:gap-[4.375rem] w-full">
           {/* Image and Name/Quote */}
           <div className="flex-col items-center lg:items-start max-w-[25rem] lg:max-w-[30rem] flex-shrink-0 ml-auto mr-auto lg:ml-0">
-            <div className="relative w-full h-[16rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] max-w-[25rem] lg:max-w-[30rem]">
+            <div className="relative w-full h-[24rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] max-w-[25rem] lg:max-w-[30rem]">
               <Image
                 src="/images/idgie/idgie-crop.jpg"
                 alt="Дмитрий Эбергарт"
@@ -23,7 +23,7 @@ const About: React.FC = () => {
                 }}
               />
             </div>
-            <h3 className="text-white text-1xl lg:text-2xl font-bold mt-8">
+            <h3 className="text-white text-[23px] lg:text-2xl font-bold mt-8">
               ДМИТРИЙ ЭБЕРГАРТ aka IDGIE
             </h3>
           </div>

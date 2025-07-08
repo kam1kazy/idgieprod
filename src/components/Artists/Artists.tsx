@@ -27,7 +27,7 @@ const Artists = () => {
 
       <div className="w-full max-w-[81.25rem] mx-auto flex-col flex relative justify-center">
         {/* Подпись под каруселью */}
-        <p className="text-base sm:text-lg md:text-[2.8rem] mb-4 md:mb-[2rem]">
+        <p className="text-base text-center sm:text-left sm:text-lg md:text-[2.8rem] mb-4 md:mb-[2rem]">
           Меня заказывают те, кто хочет результат — и те, кто уже знает, как он звучит.
         </p>
         {/* <br />
