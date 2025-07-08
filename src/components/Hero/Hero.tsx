@@ -17,12 +17,13 @@ const Hero: React.FC<IProps> = ({ handleOpenModal, isModalOpen }: IProps) => {
       </div>
 
       {/* Фоновое изображение */}
-      <div className="absolute inset-0 mt-[0] ml-[auto] mr-[auto]  mb-[-30px]  w-full">
+      <div className="absolute inset-0 mt-[0] ml-[auto] mr-[auto] mb-[-30px] w-full">
         <Image
           src="/images/idgie/hero.png"
           alt="Background"
           fill
           className="object-cover lg:object-contain"
+          style={{ objectPosition: '33%' }}
           priority
         />
       </div>

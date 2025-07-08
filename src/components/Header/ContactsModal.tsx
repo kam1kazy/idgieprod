@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import React, { useEffect } from 'react';
 
 interface ContactsModalProps {
   isOpen: boolean;
@@ -6,6 +7,17 @@ interface ContactsModalProps {
 }
 
 const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <section
       className={`fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-[#06090bbf]/95 backdrop-blur-md transition-opacity duration-300 ${
