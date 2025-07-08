@@ -8,7 +8,7 @@ const About: React.FC = () => {
         <h2 className="text-white mb-[2.8rem] text-4xl sm:text-[4rem] md:text-[4.875rem] font-bold ">
           ABOUT
         </h2>
-        <div className="relative flex flex-col lg:flex-row items-start justify-between gap-8 md:gap-[4.375rem] w-full">
+        <div className="relative flex flex-col lg:flex-row items-start justify-between gap-2 md:gap-[4.375rem] w-full">
           {/* Image and Name/Quote */}
           <div className="flex-col items-center lg:items-start max-w-[25rem] lg:max-w-[30rem] flex-shrink-0 ml-auto mr-auto lg:ml-0">
             <div className="relative w-full h-[24rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] max-w-[25rem] lg:max-w-[30rem]">
@@ -30,7 +30,7 @@ const About: React.FC = () => {
 
           {/* Text Content */}
           <div className="w-full flex-1 gap-[1.5rem] flex flex-col relative mt-0 sm:mt-8 lg:mt-0 lg:ml-auto">
-            <p className="text-gray-300 text-base md:text-[1.4rem] leading-relaxed">
+            <p className="text-gray-300 text-[0.95rem] md:text-[1.4rem] mb-[20px] leading-relaxed">
               30 лет. 14 лет в индустрии, 11 из них на проф. уровне
             </p>
             <p className="text-white text-center text-[18px] m-[0 auto] text-sm md:text-1xl font-bold mb-6">
