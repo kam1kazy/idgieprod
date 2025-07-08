@@ -26,7 +26,7 @@ const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
       onClick={onClose}
     >
       <div
-        className={`relative m-4 w-full max-w-[600px] rounded-3xl p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
+        className={`relative m-4 w-full max-w-[600px] rounded-3xl mt-20 pt-0 p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
           isOpen
             ? 'opacity-100 translate-y-0 scale-100'
             : 'opacity-0 -translate-y-28 scale-90 pointer-events-none'

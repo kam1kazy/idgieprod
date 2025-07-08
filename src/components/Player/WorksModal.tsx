@@ -100,13 +100,13 @@ const WorksModal: React.FC<WorksModalProps> = ({
     <>
       <MiniPlayer isVisible={showMiniPlayer} onStop={handleStop} />
       <section
-        className={`fixed inset-0 z-[999] grid h-screen w-screen items-start sm:place-items-center bg-[#06090bbf]/75 backdrop-blur-md transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[999] grid h-screen w-screen items-start sm:place-items-center bg-[#06090bbf]/95 backdrop-blur-md transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-all' : 'opacity-0 pointer-events-none '
         }`}
         onClick={onClose}
       >
         <div
-          className={`relative m-4 w-full h-[80%] md:max-w-[55%] sm:max-w-[90%]  max-h-[70%] rounded-3xl p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
+          className={`relative m-4 w-full h-[80%] md:max-w-[55%] sm:max-w-[90%] max-h-[70%] rounded-3xl mt-20 pt-0 pl-0 p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
             isOpen
               ? 'opacity-100 translate-y-0 scale-100'
               : 'opacity-0 -translate-y-28 scale-90 pointer-events-none'
@@ -118,7 +118,7 @@ const WorksModal: React.FC<WorksModalProps> = ({
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
           />
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-0 sm:gap-10">
             {/* Верхняя часть: название и обложка */}
             <div className="z-1 flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-0">
               <div className="flex-1">
