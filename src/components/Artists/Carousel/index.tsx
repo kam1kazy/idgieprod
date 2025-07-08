@@ -40,7 +40,7 @@ const Carousel: React.FC<PropType> = (props) => {
   }, [emblaApi, updateSlidesInView]);
 
   return (
-    <div className="relative w-full mt-8 md:mt-[3rem] mb-8 md:mb-[5rem] overflow-hidden">
+    <div className="relative w-[80%] sm:w-full mt-8 md:mt-[3rem] mb-8 md:mb-[5rem] overflow-hidden m-auto">
       <div className="embla">
         <div className="embla__viewport" ref={emblaRed}>
           <div className={'embla__container flex gap-4'}>

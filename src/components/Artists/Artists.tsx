@@ -15,7 +15,7 @@ const Artists = () => {
   };
 
   return (
-    <section className="w-full pb-8 md:pb-[6rem] pt-8 md:pt-[8rem] px-4 ">
+    <section className="w-full pb-8 md:pb-[6rem] pt-8 md:pt-[8rem] px-4 z-1 relative">
       <div className="w-full max-w-[81.25rem] mx-auto flex relative items-center justify-center">
         {/* Карусель артистов */}
         <h2 className="text-xl sm:text-2xl md:text-4xl uppercase font-bold text-white text-center mb-8">
