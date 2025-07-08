@@ -37,6 +37,7 @@ export const LazyLoadImage: React.FC<PropType> = (props) => {
             style={{
               objectFit: 'cover',
               objectPosition: 'top',
+              // maxHeight: '360px',
             }}
           />
           <div className="embla__slide__overlay text-center">

@@ -54,7 +54,7 @@ const Portfolio = () => {
   return (
     <section className="xl:min-h-screen bg-gradient-to-b from-gray-900 to-black py-0.5 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-white text-center mb-5 md:mb-15 mt-12 uppercase">
+        <h1 className="text-4xl font-bold text-white text-center mb-5 mt-0 md:mb-15 md:mt-12 uppercase">
           Мои работы
         </h1>
 
