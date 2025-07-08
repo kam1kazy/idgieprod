@@ -11,7 +11,7 @@ const About: React.FC = () => {
         <div className="relative flex flex-col lg:flex-row items-start justify-between gap-2 md:gap-[4.375rem] w-full">
           {/* Image and Name/Quote */}
           <div className="flex-col items-center lg:items-start max-w-[25rem] lg:max-w-[30rem] flex-shrink-0 ml-auto mr-auto lg:ml-0">
-            <div className="relative w-full h-[24rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] max-w-[25rem] lg:max-w-[30rem]">
+            <div className="relative w-full h-[24rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] m-[auto]  max-w-[18.5rem] sm:max-w-[25rem] lg:max-w-[30rem]">
               <Image
                 src="/images/idgie/idgie-crop.jpg"
                 alt="Дмитрий Эбергарт"
@@ -33,7 +33,7 @@ const About: React.FC = () => {
             <p className="text-gray-300 text-[0.95rem] md:text-[1.4rem] mb-[20px] leading-relaxed">
               30 лет. 14 лет в индустрии, 11 из них на проф. уровне
             </p>
-            <p className="text-white text-center text-[18px] m-[0 auto] text-sm md:text-1xl font-bold mb-6">
+            <p className="text-white text-center sm:text-left text-[18px] m-[0 auto] text-sm md:text-1xl font-bold mb-6">
               Продюсер. Сонграйтер. Звукорежиссёр. Артист. Человек и пароход.
             </p>
 
