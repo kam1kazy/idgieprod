@@ -30,7 +30,7 @@ const About: React.FC = () => {
 
           {/* Text Content */}
           <div className="w-full flex-1 gap-[1.5rem] flex flex-col relative mt-0 sm:mt-8 lg:mt-0 lg:ml-auto">
-            <p className="text-gray-300 text-[0.95rem] md:text-[1.4rem] mb-[20px] leading-relaxed">
+            <p className="text-gray-300 text-center sm:text-left text-[0.8rem] md:text-[1.4rem] mb-[20px] leading-relaxed">
               30 лет. 14 лет в индустрии, 11 из них на проф. уровне
             </p>
             <p className="text-white text-center sm:text-left text-[18px] m-[0 auto] text-sm md:text-1xl font-bold mb-6">
