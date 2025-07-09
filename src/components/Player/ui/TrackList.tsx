@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import { useEffect } from 'react';
 import { Track } from '../songList';
 
 interface TrackListProps {
@@ -7,9 +7,25 @@ interface TrackListProps {
   onTrackSelect: (track: Track) => void;
   currentTrack?: Track;
   category: string;
+  loadingTrack?: Track | null;
+  playingTrack?: Track | null;
+  isPlaying?: boolean;
 }
 
-const TrackList: React.FC<TrackListProps> = ({ tracks, onTrackSelect, currentTrack, category }) => {
+const TrackList: React.FC<TrackListProps> = ({
+  tracks,
+  onTrackSelect,
+  currentTrack,
+  category,
+  loadingTrack,
+  playingTrack,
+  isPlaying,
+}) => {
+  useEffect(() => {
+    console.log('loadingTrack', loadingTrack?.title);
+    console.log('playingTrack', playingTrack?.title);
+  }, [loadingTrack]);
+
   return (
     <div>
       <div className="font-semibold text-white mb-2">{category}</div>
@@ -23,7 +39,7 @@ const TrackList: React.FC<TrackListProps> = ({ tracks, onTrackSelect, currentTra
             onClick={() => onTrackSelect(track)}
           >
             <div className="flex pr-[20px] items-center gap-2">
-              <span className="relative ml-[10px] w-2 h-2 mr-3 group-hover:[&>img]:brightness-0 group-hover:[&>img]:invert">
+              <span className="relative ml-[10px] w-3 h-3 mr-3 flex items-center">
                 <Image
                   src="/images/icons/play.svg"
                   alt="play"
@@ -32,6 +48,37 @@ const TrackList: React.FC<TrackListProps> = ({ tracks, onTrackSelect, currentTra
                   className="transition-all"
                 />
               </span>
+              {/* {loadingTrack?.title === track.title ? (
+                <span className="relative ml-[10px] w-5 h-5 mr-1 flex items-center">
+                  <Image
+                    src="/images/icons/spinner.svg"
+                    alt="spinner"
+                    fill
+                    priority
+                    className="spinning-icon text-white w-[15px] h-[15px]"
+                  />
+                </span>
+              ) : playingTrack?.title === track.title && isPlaying ? (
+                <span className="relative ml-[10px] w-3 h-3 mr-3 flex items-center">
+                  <Image
+                    src="/images/icons/stop.svg"
+                    alt="stop"
+                    fill
+                    priority
+                    className="transition-all"
+                  />
+                </span>
+              ) : (
+                <span className="relative ml-[10px] w-3 h-3 mr-3 flex items-center">
+                  <Image
+                    src="/images/icons/play.svg"
+                    alt="play"
+                    fill
+                    priority
+                    className="transition-all"
+                  />
+                </span>
+              )} */}
               <span className="text-white font-medium">
                 {track.artist} - {track.title}{' '}
                 {track.feat && <span className="text-sm text-[#047cb9]"> ft. {track.feat}</span>}

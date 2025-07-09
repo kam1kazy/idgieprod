@@ -99,3 +99,12 @@ input[type='range']::-moz-range-thumb {
 input[type='range']::-moz-range-thumb:hover {
   transform: scale(1.2);
 }
+
+@keyframes spinIcon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinning-icon {
+  animation: spinIcon 2s linear infinite;
+}

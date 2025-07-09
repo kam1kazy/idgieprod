@@ -22,6 +22,11 @@ interface PlayerContextType {
   setShowMiniPlayer: (show: boolean) => void;
   handlePrevTrack: (tracks: Track[]) => void;
   handleNextTrack: (tracks: Track[]) => void;
+  loadingTrack: Track | null;
+  setLoadingTrack: (track: Track | null) => void;
+  playingTrack: Track | null;
+  setPlayingTrack: (track: Track | null) => void;
+  handleCanPlay: () => void;
 }
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -34,24 +39,45 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [duration, setDuration] = useState(0);
   const [showMiniPlayer, setShowMiniPlayer] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [loadingTrack, setLoadingTrack] = useState<Track | null>(null);
+  const [playingTrack, setPlayingTrack] = useState<Track | null>(null);
 
   const handlePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
       } else {
-        audioRef.current.play();
+        audioRef.current
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+            setLoadingTrack(null); // Сбрасываем loadingTrack при успешном воспроизведении
+            setPlayingTrack(currentTrack); // Устанавливаем playingTrack
+          })
+          .catch((error) => {
+            console.error('Error playing track:', error);
+          });
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
   const handleTrackSelect = (track: Track) => {
-    setCurrentTrack(track);
+    console.log('Selecting track:', track.title); // Для отладки
+    setCurrentTrack(track); // Устанавливаем currentTrack
+    setLoadingTrack(track); // Устанавливаем loadingTrack
+    setPlayingTrack(null); // Сбрасываем playingTrack
     if (audioRef.current) {
       audioRef.current.src = track.src;
-      audioRef.current.play();
-      setIsPlaying(true);
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((error) => {
+          console.error('Error playing track:', error);
+          setIsPlaying(false);
+        });
     }
   };
 
@@ -107,6 +133,14 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     handleTrackSelect(tracks[nextIdx]);
   };
 
+  const handleCanPlay = () => {
+    console.log('handleCanPlay triggered', { currentTrack, audioRef: audioRef.current });
+    if (audioRef.current && currentTrack) {
+      setLoadingTrack(null);
+      setPlayingTrack(currentTrack);
+    }
+  };
+
   const value = {
     isPlaying,
     currentTrack,
@@ -122,9 +156,14 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     handleSeek,
     handleVolumeChange,
     handleStop,
+    handleCanPlay,
     setShowMiniPlayer,
     handlePrevTrack,
     handleNextTrack,
+    loadingTrack,
+    setLoadingTrack,
+    playingTrack,
+    setPlayingTrack,
   };
 
   return <PlayerContext.Provider value={value}>{children}</PlayerContext.Provider>;

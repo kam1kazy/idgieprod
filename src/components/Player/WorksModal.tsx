@@ -69,6 +69,9 @@ const WorksModal: React.FC<WorksModalProps> = ({
     handleSeek,
     handleStop,
     handleVolumeChange,
+    handleCanPlay,
+    loadingTrack,
+    playingTrack,
   } = usePlayer();
 
   const { formatTime } = useTimeFormat();
@@ -117,6 +120,8 @@ const WorksModal: React.FC<WorksModalProps> = ({
             ref={audioRef}
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
+            onCanPlay={handleCanPlay}
+            onPlay={handleCanPlay} // добавил дублирующий обработчик
           />
           <div className="flex flex-col gap-0 sm:gap-10">
             {/* Верхняя часть: название и обложка */}
@@ -162,6 +167,9 @@ const WorksModal: React.FC<WorksModalProps> = ({
                   onGenreChange={setSelectedGenre}
                   onTrackSelect={handleTrackSelect}
                   tracks={currentTracks}
+                  loadingTrack={loadingTrack}
+                  playingTrack={playingTrack}
+                  isPlaying={isPlaying}
                 />
               </div>
               {/* Контролы - видны только на десктопе */}
