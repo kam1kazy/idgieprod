@@ -19,7 +19,7 @@ const Mem: React.FC = () => {
           <div className="flex-col items-center lg:items-start text-center lg:text-left flex-shrink-0 w-full lg:w-[50%]">
             <div className="relative w-full h-[20rem] sm:h-[24rem] md:h-[28rem] lg:h-[32rem] max-w-[25rem] lg:max-w-[35rem] mx-auto">
               <Image
-                src="/images/idgie/meme.png"
+                src="/images/idgie/meme.webp"
                 alt="Дмитрий Эбергарт"
                 fill
                 className="object-contain rounded-lg shadow-md"
