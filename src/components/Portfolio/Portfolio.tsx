@@ -33,6 +33,9 @@ const Portfolio = () => {
     handleTrackSelect,
     handleSeek,
     handleVolumeChange,
+    handleCanPlay,
+    loadingTrack,
+    playingTrack,
   } = usePlayer();
 
   const { formatTime } = useTimeFormat();
@@ -136,6 +139,9 @@ const Portfolio = () => {
                   onGenreChange={setSelectedGenre}
                   onTrackSelect={handleTrackSelect}
                   tracks={currentTracks}
+                  loadingTrack={loadingTrack}
+                  playingTrack={playingTrack}
+                  isPlaying={isPlaying}
                 />
               </div>
               {/* Контролы - видны только на десктопе */}
