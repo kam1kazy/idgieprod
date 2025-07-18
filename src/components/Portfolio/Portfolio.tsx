@@ -12,10 +12,12 @@ import ProgressBar from '../Player/ui/ProgressBar';
 import VolumeControl from '../Player/ui/VolumeControl';
 import { genreToImage, yandexLinks } from '../Player/WorksModal';
 import { portfolioCards } from './content/PortfolioList';
+import YandexModal from './YandexModal';
 
 const Portfolio = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
   const [selectedCategory, setSelectedCategory] = useState<Category>('Песни под ключ');
+  const [isYandexModalOpen, setYandexModalOpen] = useState(false);
 
   const yandexLink = yandexLinks[selectedCategory][selectedGenre];
 
@@ -154,17 +156,17 @@ const Portfolio = () => {
         </div>
 
         {/* Ссылка на Яндекс Диск */}
-        {/* <div className="text-center mt-12">
+        <div className="text-center mt-12">
           <p className="text-gray-400 mb-4">Больше примеров работ можно послушать по ссылке:</p>
-          <a
-            href="https://disk.yandex.ru/your-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-800 text-xs px-2 py-1 rounded-full ml-2 px-6 py-3 cursor-pointer hover:text-blue-400"
+          <button
+            type="button"
+            onClick={() => setYandexModalOpen(true)}
+            className="bg-orange-500 text-xs rounded-full ml-2 px-6 py-3 w-[180px] md:w-[260px] h-[40px] md:h-[60px] text-[16px] sm:text-[18px] cursor-pointer hover:bg-orange-800"
           >
             Яндекс Диск
-          </a>
-        </div> */}
+          </button>
+        </div>
+        <YandexModal isOpen={isYandexModalOpen} onClose={() => setYandexModalOpen(false)} />
       </div>
     </section>
   );

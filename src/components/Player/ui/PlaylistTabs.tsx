@@ -44,7 +44,7 @@ const PlaylistTabs: React.FC<PlaylistTabsProps> = ({
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
-            <span className="relative w-5 h-5 md:hidden">
+            {/* <span className="relative w-5 h-5 md:hidden">
               <Image
                 src={getCategoryIcon(category)}
                 alt={category}
@@ -52,8 +52,8 @@ const PlaylistTabs: React.FC<PlaylistTabsProps> = ({
                 priority
                 className="[filter:brightness(0)_invert(1)]"
               />
-            </span>
-            <span className="hidden md:inline">{category}</span>
+            </span> */}
+            <span className="inline text-[10px] sm:text-[16px]">{category}</span>
           </button>
         ))}
       </div>

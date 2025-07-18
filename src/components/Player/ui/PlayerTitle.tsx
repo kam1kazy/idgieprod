@@ -15,7 +15,7 @@ const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, link, imgSrc }
           {link && (
             <div className="text-sm text-[#047cb9] mb-8">
               <a href={link} target="_blank" rel="noopener noreferrer">
-                Полный список в Яндекс.Музыки
+                Плейлист в Яндекс.Музыки
               </a>
             </div>
           )}
