@@ -4,8 +4,8 @@ interface IProps {
 
 export const YandexButton = (props: IProps) => {
   return (
-    <div className="buttonHolder w-[auto] md:w-[35rem]">
-      <button onClick={props.onClick} className="electric w-full" id="electric">
+    <div onClick={props.onClick} className="buttonHolder w-[auto] md:w-[35rem]">
+      <button className="electric w-full" id="electric">
         <span className="part hide" id="part1"></span>
         <span className="part hide" id="part2"></span>
         <span className="part hide" id="part3"></span>

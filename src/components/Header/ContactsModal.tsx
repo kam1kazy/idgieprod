@@ -25,6 +25,14 @@ const ContactsModal: React.FC<ContactsModalProps> = ({ isOpen, onClose }) => {
       }`}
       onClick={onClose}
     >
+      <Image
+        className="absolute top-[1.875rem] right-[1.875rem]"
+        src="/images/icons/close.svg"
+        alt="close"
+        width={30}
+        height={30}
+        onClick={onClose}
+      />
       <div
         className={`relative m-4 w-full max-w-[600px] rounded-3xl mt-20 pt-0 p-10 backdrop-blur-md backdrop-filter-none transition-all duration-300 ${
           isOpen
