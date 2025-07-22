@@ -1,18 +1,20 @@
 import { SetStateAction } from 'react';
 
 interface IProps {
-  onClick: () => void;
+  openModal: () => void;
 }
 
 export const YandexButton = (props: IProps) => {
+  const { openModal } = props;
   return (
-    <div onClick={props.onClick} className="buttonHolder w-[auto] md:w-[35rem]">
-      <button className="electric w-full" id="electric">
-        <span className="part hide" id="part1"></span>
-        <span className="part hide" id="part2"></span>
-        <span className="part hide" id="part3"></span>
-        <span className="part hide" id="part4"></span>
+    <div onClick={openModal} className="buttonHolder w-[auto] md:w-[35rem]">
+      <button onClick={openModal} className="electric w-full" id="electric">
+        <span onClick={openModal} className="part hide" id="part1"></span>
+        <span onClick={openModal} className="part hide" id="part2"></span>
+        <span onClick={openModal} className="part hide" id="part3"></span>
+        <span onClick={openModal} className="part hide" id="part4"></span>
         <svg
+          onClick={openModal}
           id="y1"
           className="yellow hide"
           width="415"
@@ -29,6 +31,7 @@ export const YandexButton = (props: IProps) => {
           />
         </svg>
         <svg
+          onClick={openModal}
           id="y2"
           className="yellow yellow-glow hide"
           width="461"
@@ -62,6 +65,7 @@ export const YandexButton = (props: IProps) => {
           </defs>
         </svg>
         <svg
+          onClick={openModal}
           id="b1"
           className="blue hide"
           width="423"
@@ -78,6 +82,7 @@ export const YandexButton = (props: IProps) => {
           />
         </svg>
         <svg
+          onClick={openModal}
           className="blue hide"
           id="b2"
           width="470"
@@ -113,7 +118,7 @@ export const YandexButton = (props: IProps) => {
         Слушать больше примеров работ
       </button>
 
-      <button className="electric hide" id="electric2">
+      <button onClick={openModal} className="electric hide" id="electric2">
         {' '}
         Слушать больше примеров работ
       </button>

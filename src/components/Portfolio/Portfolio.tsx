@@ -176,7 +176,7 @@ const Portfolio = () => {
           onClick={handlerOpenModal}
           className="text-center mt-1 md:mt-12 flex justify-center overflow-hidden md:overflow-visible items-center min-h-[14.125rem] md:min-h-[auto]"
         >
-          <YandexButton onClick={handlerOpenModal} />
+          <YandexButton openModal={handlerOpenModal} />
         </div>
         <YandexModal isOpen={isYandexModalOpen} onClose={() => setYandexModalOpen(false)} />
       </div>
