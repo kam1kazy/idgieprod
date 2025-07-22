@@ -795,7 +795,7 @@ input[type='range']::-moz-range-thumb:hover {
   }
 }
 
-@media screen and (width < 380px) {
+@media screen and (width < 460px) {
   .electric {
     font-size: 13px;
   }
