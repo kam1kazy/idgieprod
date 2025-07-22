@@ -78,9 +78,9 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
           </div>
         </section>
 
-        <div className="flex items-center justify-center gap-4 mb-9">
+        <div className="flex items-center justify-center gap-4 mb-1 md:mb-9">
           <div>
-            <div className="gold_wrapper mb-[20px]">
+            <div className="gold_wrapper mb-[0] md:mb-[20px]">
               <div className="bg"> POP </div>
               <div className="fg"> POP </div>
             </div>
@@ -102,11 +102,11 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-4 mb-9">
+        <div className="flex items-center justify-center gap-4 mb-1 md:mb-9">
           <div>
             {/* <div className="text-white font-medium">HipHop</div> */}
 
-            <div className="gold_wrapper mb-[20px]">
+            <div className="gold_wrapper mb-[0] md:mb-[20px]">
               <div className="bg"> HIP - HOP </div>
               <div className="fg"> HIP - HOP </div>
             </div>
@@ -131,7 +131,7 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
 
         <div className="flex items-center justify-center gap-4">
           <div>
-            <div className="gold_wrapper mb-[20px]">
+            <div className="gold_wrapper mb-[0] md:mb-[20px]">
               <div className="bg"> ROCK </div>
               <div className="fg"> ROCK </div>
             </div>

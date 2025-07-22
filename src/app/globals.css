@@ -799,4 +799,9 @@ input[type='range']::-moz-range-thumb:hover {
   .electric {
     font-size: 13px;
   }
+  .header_pink {
+    transform: scale(0.8);
+    margin-bottom: 10px;
+    padding-top: 0;
+  }
 }
