@@ -53,7 +53,7 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
       className={`fixed inset-0 z-[999] grid place-items-center bg-[#06090bbf]/95 backdrop-blur-md transition-opacity duration-300 w-full h-full ${
         isOpen ? 'opacity-100 pointer-events-all' : 'opacity-0 pointer-events-none'
       }`}
-      onClick={(e) => e.stopPropagation()}
+      onClick={onClose}
     >
       <Image
         className="absolute top-[1.875rem] right-[1.875rem]"

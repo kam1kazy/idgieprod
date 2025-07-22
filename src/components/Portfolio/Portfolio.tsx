@@ -58,6 +58,10 @@ const Portfolio = () => {
 
   const currentTracks = playlistData[selectedCategory][selectedGenre];
 
+  const handlerOpenModal = () => {
+    setYandexModalOpen(true);
+  };
+
   return (
     <section className="xl:min-h-screen bg-gradient-to-b from-gray-900 to-black py-0.5 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -168,8 +172,11 @@ const Portfolio = () => {
         </div>
 
         {/* Ссылка на Яндекс Диск */}
-        <div className="text-center mt-1 md:mt-12 flex justify-center overflow-hidden md:overflow-visible items-center min-h-[14.125rem] md:min-h-[auto]">
-          <YandexButton onClick={() => setYandexModalOpen(true)} />
+        <div
+          onClick={handlerOpenModal}
+          className="text-center mt-1 md:mt-12 flex justify-center overflow-hidden md:overflow-visible items-center min-h-[14.125rem] md:min-h-[auto]"
+        >
+          <YandexButton onClick={handlerOpenModal} />
         </div>
         <YandexModal isOpen={isYandexModalOpen} onClose={() => setYandexModalOpen(false)} />
       </div>

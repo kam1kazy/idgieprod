@@ -1,5 +1,7 @@
+import { SetStateAction } from 'react';
+
 interface IProps {
-  onClick: any;
+  onClick: () => void;
 }
 
 export const YandexButton = (props: IProps) => {
