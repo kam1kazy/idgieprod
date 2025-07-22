@@ -84,28 +84,21 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
               <div className="bg"> POP </div>
               <div className="fg"> POP </div>
             </div>
-            <a
-              href="https://www.youtube.com/@the_idgie"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
-            >
-              <div className="flex flex-row gap-4">
-                {playlistsPop.map((pl) => (
-                  <span data-text={pl.label}>
-                    <a
-                      key={pl.url}
-                      href={pl.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn hologram"
-                    >
-                      <span data-text={pl.label}>{pl.label}</span>
-                    </a>
-                  </span>
-                ))}
-              </div>
-            </a>
+            <div className="flex flex-row gap-4">
+              {playlistsPop.map((pl, idx) => (
+                <span key={idx} data-text={pl.label}>
+                  <a
+                    key={pl.url}
+                    href={pl.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn hologram"
+                  >
+                    <span data-text={pl.label}>{pl.label}</span>
+                  </a>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -118,28 +111,21 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
               <div className="fg"> HIP - HOP </div>
             </div>
 
-            <a
-              href="https://www.youtube.com/@the_idgie"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
-            >
-              <div className="flex flex-row gap-4">
-                {playlistsHipHop.map((pl) => (
-                  <span data-text={pl.label}>
-                    <a
-                      key={pl.url}
-                      href={pl.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn hologram"
-                    >
-                      <span data-text={pl.label}>{pl.label}</span>
-                    </a>
-                  </span>
-                ))}
-              </div>
-            </a>
+            <div className="flex flex-row gap-4">
+              {playlistsHipHop.map((pl, idx) => (
+                <span key={idx} data-text={pl.label}>
+                  <a
+                    key={pl.url}
+                    href={pl.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn hologram"
+                  >
+                    <span data-text={pl.label}>{pl.label}</span>
+                  </a>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -150,28 +136,21 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
               <div className="fg"> ROCK </div>
             </div>
 
-            <a
-              href="https://www.youtube.com/@the_idgie"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#047cb9] hover:text-[#047cb9]/80 transition-colors"
-            >
-              <div className="flex flex-row gap-4">
-                {playlistsRock.map((pl) => (
-                  <span data-text={pl.label}>
-                    <a
-                      key={pl.url}
-                      href={pl.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn hologram"
-                    >
-                      <span data-text={pl.label}>{pl.label}</span>
-                    </a>
-                  </span>
-                ))}
-              </div>
-            </a>
+            <div className="flex flex-row gap-4">
+              {playlistsRock.map((pl, idx) => (
+                <span key={idx} data-text={pl.label}>
+                  <a
+                    key={pl.url}
+                    href={pl.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn hologram"
+                  >
+                    <span data-text={pl.label}>{pl.label}</span>
+                  </a>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
