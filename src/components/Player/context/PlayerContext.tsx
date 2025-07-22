@@ -42,6 +42,12 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [loadingTrack, setLoadingTrack] = useState<Track | null>(null);
   const [playingTrack, setPlayingTrack] = useState<Track | null>(null);
 
+  // setTimeout(() => {
+  //   console.log('asdasd:');
+  //   setLoadingTrack(null); // Сбрасываем loadingTrack при успешном воспроизведении
+  //   setPlayingTrack(currentTrack); // Устанавливаем playingTrack
+  // }, 10);
+
   const handlePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -52,21 +58,20 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
           .play()
           .then(() => {
             setIsPlaying(true);
-            setLoadingTrack(null); // Сбрасываем loadingTrack при успешном воспроизведении
-            setPlayingTrack(currentTrack); // Устанавливаем playingTrack
           })
           .catch((error) => {
             console.error('Error playing track:', error);
           });
       }
     }
+    console.log('12312312:');
   };
 
   const handleTrackSelect = (track: Track) => {
-    console.log('Selecting track:', track.title); // Для отладки
     setCurrentTrack(track); // Устанавливаем currentTrack
     setLoadingTrack(track); // Устанавливаем loadingTrack
     setPlayingTrack(null); // Сбрасываем playingTrack
+
     if (audioRef.current) {
       audioRef.current.src = track.src;
       audioRef.current
@@ -79,6 +84,10 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
           setIsPlaying(false);
         });
     }
+
+    if (currentTrack?.src === track.src) {
+      handlePlay();
+    }
   };
 
   const handleTimeUpdate = () => {
@@ -89,6 +98,8 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
   const handleLoadedMetadata = () => {
     if (audioRef.current) {
+      setLoadingTrack(null); // Сбрасываем loadingTrack при успешном воспроизведении
+      setPlayingTrack(currentTrack); // Устанавливаем playingTrack
       setDuration(audioRef.current.duration);
     }
   };

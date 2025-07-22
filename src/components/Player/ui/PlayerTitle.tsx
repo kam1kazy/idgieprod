@@ -12,13 +12,13 @@ const PlayerTitle: React.FC<PlayerTitleProps> = ({ artist, title, link, imgSrc }
     <>
       <div className="flex">
         <div className="w-[180px] mr-[10px] sm:w-[auto]">
-          {link && (
+          {/* {link && (
             <div className="text-sm text-[#047cb9] mb-8">
               <a href={link} target="_blank" rel="noopener noreferrer">
                 Плейлист в Яндекс.Музыки
               </a>
             </div>
-          )}
+          )} */}
           <p className="text-xl sm:text-2xl md:text-5xl font-bold text-white mb-2 leading-tight">
             {title ? `${artist} - ${title}` : 'Выберите трек'}
           </p>

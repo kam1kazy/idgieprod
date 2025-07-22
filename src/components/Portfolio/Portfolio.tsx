@@ -13,6 +13,7 @@ import VolumeControl from '../Player/ui/VolumeControl';
 import { genreToImage, yandexLinks } from '../Player/WorksModal';
 import { portfolioCards } from './content/PortfolioList';
 import YandexModal from './YandexModal';
+import { YandexButton } from './YandexButton';
 
 const Portfolio = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>('POP');
@@ -93,7 +94,7 @@ const Portfolio = () => {
         </div>
 
         {/* Встроенный плеер */}
-        <div className="mt-5 rounded-3xl p-8">
+        <div className="mt-20 rounded-3xl p-8 overflow-hidden">
           <audio
             ref={audioRef}
             onTimeUpdate={handleTimeUpdate}
@@ -101,7 +102,7 @@ const Portfolio = () => {
           />
           <div className="flex flex-col gap-0 md:gap-10 ">
             {/* Верхняя часть: название и обложка */}
-            <div className="z-1 flex flex-col md:flex-row items-start min-[460px]:flex-row md:items-center gap-6">
+            <div className="z-1 flex flex-col md:flex-row min-[460px]:flex-row items-center gap-6">
               <div className="flex-1 w-full">
                 <PlayerTitle
                   artist={currentTrack?.artist}
@@ -119,13 +120,24 @@ const Portfolio = () => {
               </div>
               {/* Обложка альбома - видна от 460px */}
               <div className="hidden min-[460px]:block">
-                <Image
-                  src={genreToImage[selectedGenre]}
-                  alt="Album Cover"
-                  width={192}
-                  height={192}
-                  className="w-48 h-48 rounded-xl object-cover shadow-lg"
-                />
+                <div className="gramaphone-record-general">
+                  <Image
+                    id="cover"
+                    src={genreToImage[selectedGenre]}
+                    alt="Album Cover"
+                    width={192}
+                    height={192}
+                    className={
+                      isPlaying
+                        ? 'playing cover w-48 h-48 rounded-xl object-cover shadow-lg'
+                        : 'cover w-48 h-48 rounded-xl object-cover shadow-lg'
+                    }
+                  />
+                  <div className={'disc'} id="disc">
+                    {' '}
+                    <Image src={'/images/vinyl.png'} alt="vinyl" width={245} height={245} />
+                  </div>
+                </div>
               </div>
             </div>
             {/* Мобильные контролы */}
@@ -156,15 +168,8 @@ const Portfolio = () => {
         </div>
 
         {/* Ссылка на Яндекс Диск */}
-        <div className="text-center mt-12">
-          <p className="text-gray-400 mb-4">Больше примеров работ можно послушать по ссылке:</p>
-          <button
-            type="button"
-            onClick={() => setYandexModalOpen(true)}
-            className="bg-orange-500 text-xs rounded-full ml-2 px-6 py-3 w-[180px] md:w-[260px] h-[40px] md:h-[60px] text-[16px] sm:text-[18px] cursor-pointer hover:bg-orange-800"
-          >
-            Яндекс Диск
-          </button>
+        <div className="text-center mt-1 md:mt-12 flex justify-center overflow-hidden md:overflow-visible items-center min-h-[14.125rem] md:min-h-[auto]">
+          <YandexButton onClick={() => setYandexModalOpen(true)} />
         </div>
         <YandexModal isOpen={isYandexModalOpen} onClose={() => setYandexModalOpen(false)} />
       </div>

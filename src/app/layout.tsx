@@ -1,5 +1,13 @@
 import './globals.css';
 
+import { Exo_2 } from 'next/font/google';
+const exo2 = Exo_2({
+  subsets: ['latin'],
+  weight: ['300', '700', '900'],
+  display: 'swap',
+  variable: '--font-exo2',
+});
+
 import type { Metadata } from 'next';
 
 import GlowEffect from '@/components/GlowEffect/GlowEffect';
@@ -23,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body
-        className={`${ntSomic.variable} ${ntSomicVariable.variable} ${inspiration.variable} ${gunnyRewritten.variable} ${marckScript.variable} antialiased`}
+        className={`${exo2.variable} ${ntSomic.variable} ${ntSomicVariable.variable} ${inspiration.variable} ${gunnyRewritten.variable} ${marckScript.variable} antialiased`}
       >
         <GlowEffect />
         <PlayerProvider>{children}</PlayerProvider>

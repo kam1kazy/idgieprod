@@ -21,15 +21,10 @@ const TrackList: React.FC<TrackListProps> = ({
   playingTrack,
   isPlaying,
 }) => {
-  useEffect(() => {
-    console.log('loadingTrack', loadingTrack?.title);
-    console.log('playingTrack', playingTrack?.title);
-  }, [loadingTrack]);
-
   return (
     <div>
       <div className="font-semibold text-white mb-2">{category}</div>
-      <ul className="space-y-2">
+      <ul className="space-y-2 mt-[25] md:mt-[auto]">
         {tracks.map((track) => (
           <li
             key={track.title}
@@ -39,7 +34,7 @@ const TrackList: React.FC<TrackListProps> = ({
             onClick={() => onTrackSelect(track)}
           >
             <div className="flex pr-[20px] items-center gap-2">
-              <span className="relative ml-[10px] w-3 h-3 mr-3 flex items-center">
+              {/* <span className="relative ml-[10px] w-3 h-3 mr-3 flex items-center">
                 <Image
                   src="/images/icons/play.svg"
                   alt="play"
@@ -47,8 +42,8 @@ const TrackList: React.FC<TrackListProps> = ({
                   priority
                   className="transition-all"
                 />
-              </span>
-              {/* {loadingTrack?.title === track.title ? (
+              </span> */}
+              {loadingTrack?.title === track.title ? (
                 <span className="relative ml-[10px] w-5 h-5 mr-1 flex items-center">
                   <Image
                     src="/images/icons/spinner.svg"
@@ -59,15 +54,15 @@ const TrackList: React.FC<TrackListProps> = ({
                   />
                 </span>
               ) : playingTrack?.title === track.title && isPlaying ? (
-                <span className="relative ml-[10px] w-3 h-3 mr-3 flex items-center">
-                  <Image
-                    src="/images/icons/stop.svg"
-                    alt="stop"
-                    fill
-                    priority
-                    className="transition-all"
-                  />
-                </span>
+                <div className="relative w-5 h-5 mr-3">
+                  <div className="playing_icon">
+                    <div className="rect1"></div>
+                    <div className="rect2"></div>
+                    <div className="rect3"></div>
+                    <div className="rect4"></div>
+                    <div className="rect5"></div>
+                  </div>
+                </div>
               ) : (
                 <span className="relative ml-[10px] w-3 h-3 mr-3 flex items-center">
                   <Image
@@ -78,7 +73,7 @@ const TrackList: React.FC<TrackListProps> = ({
                     className="transition-all"
                   />
                 </span>
-              )} */}
+              )}
               <span className="text-white font-medium">
                 {track.artist} - {track.title}{' '}
                 {track.feat && <span className="text-sm text-[#047cb9]"> ft. {track.feat}</span>}

@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --gold: #ffb338;
+  --light-shadow: #77571d;
+  --dark-shadow: #3e2904;
 }
 
 @theme inline {
@@ -24,6 +27,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'ntSomic', 'ntSomic Fallback', sans-serif;
+  --metal-tex: url(https://images.unsplash.com/photo-1501166222995-ff31c7e93cef?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTcyMDc2NzU&ixlib=rb-1.2.1&q=80);
 }
 
 @keyframes fadeIn {
@@ -101,10 +105,703 @@ input[type='range']::-moz-range-thumb:hover {
 }
 
 @keyframes spinIcon {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .spinning-icon {
   animation: spinIcon 2s linear infinite;
+}
+
+/*! ELECTRIC */
+
+.buttonHolder {
+  position: relative;
+  /* width: 100%; */
+}
+
+.buttonHolder svg {
+  position: absolute;
+  pointer-events: none;
+}
+
+.electric {
+  padding: 20px 50px;
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: #ff6900;
+  border: 2px solid transparent;
+  color: white;
+  position: relative;
+  filter: blur(0px);
+  transition: background-color 0.8s ease;
+}
+
+.electric:hover {
+  background-color: rgba(106, 123, 252, 0.13);
+  border: 2px solid rgb(125, 140, 255);
+}
+
+#electric2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(1px);
+  background-color: #ff6900;
+  border: 2px solid transparent;
+  color: rgb(182, 191, 255);
+  /* display: none; */
+  z-index: -1;
+}
+
+#electric2:hover {
+  background-color: rgba(106, 123, 252, 0.414);
+  border: 2px solid rgb(125, 140, 255);
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.yellow {
+  width: 110%;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 1000;
+  animation: dash 1s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+.blue {
+  width: 110%;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 1000;
+  animation: dash 1.2s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+#y1 {
+  top: -95%;
+  left: -5%;
+  filter: blur(0.5px);
+}
+
+#y2 {
+  width: 120%;
+  left: -10%;
+  top: -135%;
+  filter: brightness(1);
+}
+
+#b1 {
+  left: -5%;
+  top: -105%;
+  /* filter: blur(.5px) */
+}
+
+#b2 {
+  left: -10%;
+  top: -145%;
+  width: 120%;
+  /* filter: blur(.5px) */
+}
+
+@media screen and (width < 380px) {
+  #y1 {
+    top: -55%;
+    left: -5%;
+    filter: blur(0.5px);
+  }
+
+  #y2 {
+    width: 120%;
+    left: -10%;
+    top: -95%;
+    filter: brightness(1);
+  }
+
+  #b1 {
+    left: -5%;
+    top: -65%;
+    /* filter: blur(.5px) */
+  }
+
+  #b2 {
+    left: -10%;
+    top: -105%;
+    width: 120%;
+    /* filter: blur(.5px) */
+  }
+}
+
+@keyframes dot1 {
+  from {
+    bottom: 0%;
+    left: 10%;
+    opacity: 1;
+  }
+  to {
+    bottom: -30%;
+    left: 0%;
+    opacity: 0;
+  }
+}
+@keyframes dot2 {
+  from {
+    top: 0%;
+    left: 30%;
+    opacity: 1;
+  }
+  to {
+    top: -30%;
+    left: 40%;
+    opacity: 0;
+  }
+}
+
+@keyframes dot3 {
+  from {
+    top: 0%;
+    left: 80%;
+    opacity: 1;
+  }
+  to {
+    top: -30%;
+    left: 80%;
+    opacity: 0;
+  }
+}
+@keyframes dot4 {
+  from {
+    bottom: 20%;
+    left: 100%;
+    opacity: 1;
+  }
+  to {
+    bottom: 30%;
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+.part {
+  content: ' ';
+  width: 3px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: rgb(183, 226, 255);
+  z-index: 2;
+  position: absolute;
+  filter: blur(1px);
+  display: none;
+}
+
+#part1 {
+  animation: dot1;
+  transform-origin: center;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: infinite;
+}
+#part2 {
+  animation: dot2;
+  transform-origin: center;
+  animation-duration: 1.6s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: infinite;
+}
+#part3 {
+  animation: dot3;
+  transform-origin: center;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: infinite;
+}
+
+#part4 {
+  animation: dot4;
+  transform-origin: center;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: infinite;
+}
+
+.buttonHolder {
+  /* width: max-content; */
+  max-height: 20px;
+}
+
+.hide {
+  opacity: 0;
+}
+
+#electric:hover + .hide {
+  opacity: 1;
+}
+#electric:hover .hide {
+  opacity: 1;
+}
+
+.electric:hover .part {
+  display: flex;
+}
+
+/*! HOLOGRAM */
+
+.btn {
+  position: relative;
+  /* padding: 1.5rem 3rem; */
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.hologram {
+  /* backdrop-filter: blur(5px); */
+  padding: 10px;
+  width: 150px;
+  height: 80px;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hologram:hover {
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 45px rgba(0, 255, 255, 0.3);
+}
+
+.hologram span {
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+.hologram span::before,
+.hologram span::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  filter: blur(1px);
+  transition: all 0.3s ease;
+  width: max-content;
+  max-width: 100%;
+  width: 100%;
+  width: 400px;
+  right: 0;
+}
+
+.hologram span::before {
+  top: -2px;
+  color: #ff00ff;
+  transform: translateX(0);
+}
+
+.hologram span:hover::before {
+  animation: glitch 2s infinite;
+}
+
+.hologram span::after {
+  bottom: -2px;
+  color: #00ffff;
+  transform: translateX(0);
+}
+
+.hologram span:hover::after {
+  animation: glitch 2s infinite reverse;
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(0, 255, 255, 0.8), transparent);
+  bottom: -6px;
+  filter: blur(1px);
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.3;
+  }
+  20% {
+    transform: translateX(-5px);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translateX(5px);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translateX(-3px);
+    opacity: 0.5;
+  }
+  80% {
+    transform: translateX(3px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+/* ! VINYL */
+
+/* Gramophone Record General */
+/* .gramaphone-record-general {
+  width: 250px;
+  height: 300px;
+  margin: 60px;
+} */
+
+/* Main Cover */
+.cover {
+  width: 250px;
+  height: 250px;
+  margin-top: -3px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2px 2px 15px black;
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+}
+
+/* Cover Handle (Left White Circle) */
+.handle {
+  width: 50px;
+  height: 50px;
+  background: white;
+  margin: 98px 0 0 230px;
+  border-radius: 50%;
+}
+
+/* Disc */
+.disc {
+  width: 245px;
+  height: 245px;
+  /* background: url(https://moytek.com.tr/wp-content/uploads/disk-hover-effect/s-l1200.png); */
+  background-position: center;
+  background-size: 400px;
+  border-radius: 50%;
+  transition: all 1s;
+  position: relative;
+  z-index: 1;
+}
+
+/* Right Side Cover (Behind Disc) */
+.right-cover {
+  width: 250px;
+  height: 245px;
+  margin-top: -245px;
+  background: rgb(255, 255, 255);
+  border-radius: 15px;
+  transition: all 1s;
+}
+
+/* Information About Disc */
+.info {
+  width: 215px;
+  height: 210px;
+  margin-top: -243px;
+  padding: 15px;
+  background: rgb(8, 8, 8);
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  transform: rotate(-90deg);
+  transition: all 1s;
+}
+
+/* Main Cover Hover  */
+#cover.playing ~ #info {
+  margin-left: -6em;
+}
+
+/* Right Side Cover Hover */
+#cover.playing ~ #right-cover {
+  margin-left: 100px;
+}
+
+/* Disc Rotate Animation */
+#cover.playing + #disc {
+  margin-left: 100px;
+  animation: rotation 5s infinite linear;
+}
+
+/* Rotate Animation Keyframes */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ! playing */
+
+.playing_icon {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  margin: -20px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  display: flex;
+  gap: 4px;
+  transform: scale(0.4);
+  left: -7px;
+}
+.playing_icon > div {
+  background-color: #fff;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-animation: wavy 1s ease infinite forwards;
+  animation: wavy 1s ease infinite forwards;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+}
+.playing_icon .rect2 {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+.playing_icon .rect3 {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.playing_icon .rect4 {
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+.playing_icon .rect5 {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+@-webkit-keyframes wavy {
+  0% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  50% {
+    -webkit-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@keyframes wavy {
+  0% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  50% {
+    -webkit-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+
+/* ! PINK TITLE */
+/*  thx Inspired by makesweetbeats  https://www.makesweetbeats.com */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap'); */
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background: rgb(63, 161, 251);
+  background: linear-gradient(142deg, rgba(63, 161, 251, 1) 0%, rgba(252, 70, 168, 1) 100%);
+}
+
+.header_pink {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.title-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  transform: skew(0, -10deg);
+}
+
+.top-title {
+  order: 1;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+}
+
+.bottom-title {
+  order: 3;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-top: 2rem;
+  padding-left: 2rem;
+}
+
+.sweet-title {
+  order: 2;
+  color: #fde9ff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.75em;
+  text-align: center;
+  text-shadow:
+    3px 1px 1px #4af7ff,
+    2px 2px 1px #165bfb,
+    4px 2px 1px #4af7ff,
+    3px 3px 1px #165bfb,
+    5px 3px 1px #4af7ff,
+    4px 4px 1px #165bfb,
+    6px 4px 1px #4af7ff,
+    5px 5px 1px #165bfb,
+    7px 5px 1px #4af7ff,
+    6px 6px 1px #165bfb,
+    8px 6px 1px #4af7ff,
+    7px 7px 1px #165bfb,
+    9px 7px 1px #4af7ff;
+
+  span {
+    display: block;
+    position: relative;
+
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      text-shadow:
+        2px 2px 1px #e94aa1,
+        -1px -1px 1px #c736f9,
+        -2px 2px 1px #e94aa1,
+        1px -1px 1px #f736f9;
+      z-index: 1;
+    }
+
+    &:nth-child(1) {
+      padding-right: 2.25rem;
+    }
+
+    &:nth-child(2) {
+      padding-left: 2.25rem;
+    }
+  }
+}
+
+/* ! GOLD  */
+
+.gold_wrapper {
+  /* background: radial-gradient(#272727, #1b1b1b); */
+  display: grid;
+  grid-template-areas: 'overlap';
+  place-content: center;
+  text-transform: uppercase;
+  /* height: 100vh; */
+}
+.gold_wrapper > div {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #363833;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: clamp(0em, 18vw, 2rem);
+  grid-area: overlap;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 4px transparent;
+}
+.gold_wrapper div.bg {
+  background-image: repeating-linear-gradient(
+    105deg,
+    var(--gold) 0%,
+    var(--dark-shadow) 5%,
+    var(--gold) 12%
+  );
+  color: transparent;
+  filter: drop-shadow(5px 15px 15px black);
+  transform: scaleY(1.05);
+  transform-origin: top;
+}
+.gold_wrapper div.fg {
+  background-image: repeating-linear-gradient(
+    5deg,
+    var(--gold) 0%,
+    var(--light-shadow) 23%,
+    var(--gold) 31%
+  );
+  color: #1e2127;
+  transform: scale(1);
+}
+
+@media screen and (width < 556px) {
+  .hologram {
+    width: 90px;
+    height: 80px;
+  }
+  .btn {
+    font-size: 0.8rem;
+  }
+  .cover {
+    width: 210px;
+    height: 240px;
+  }
+  #cover.playing + #disc {
+    margin-left: 10px;
+  }
+  .disc {
+    width: 235px;
+    height: 235px;
+  }
+}
+
+@media screen and (width < 380px) {
+  .electric {
+    font-size: 13px;
+  }
 }

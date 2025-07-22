@@ -14,7 +14,7 @@ const MobilePlayerControls: React.FC<MobilePlayerControlsProps> = ({ tracks }) =
   const { handleVolumeIconClick } = useVolumeState(volume, handleVolumeChange);
 
   return (
-    <div className="flex items-center justify-center mb-[30px] gap-6 w-full py-4 rounded-xl lg:hidden">
+    <div className="flex items-center justify-center mt-[30px] mb-[30px] gap-6 w-full py-4 rounded-xl lg:hidden">
       {/* Prev */}
       <button
         onClick={() => handlePrevTrack(tracks)}
