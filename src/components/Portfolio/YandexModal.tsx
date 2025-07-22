@@ -53,7 +53,7 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
       className={`fixed inset-0 z-[999] grid place-items-center bg-[#06090bbf]/95 backdrop-blur-md transition-opacity duration-300 w-full h-full ${
         isOpen ? 'opacity-100 pointer-events-all' : 'opacity-0 pointer-events-none'
       }`}
-      onClick={onClose}
+      onClick={(e) => e.stopPropagation()}
     >
       <Image
         className="absolute top-[1.875rem] right-[1.875rem]"
@@ -69,7 +69,6 @@ const YandexModal: React.FC<YandexModalProps> = ({ isOpen, onClose }) => {
             ? 'opacity-100 translate-y-0 scale-100'
             : 'opacity-0 -translate-y-28 scale-90 pointer-events-none'
         }`}
-        onClick={(e) => e.stopPropagation()}
       >
         {/* <h2 className="text-3xl font-bold text-white mb-[50px] relative text-center">
           Портфолио на Яндекс Музыке<div className="scan-line"></div>
