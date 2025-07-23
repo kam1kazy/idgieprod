@@ -78,12 +78,12 @@ export const metadata: Metadata = {
     title: 'IDGIE.Prod | Музыкальный продюсер',
     description:
       'Создание уникальных треков и саундтреков от IDGIE. 14 лет опыта, 1000+ аранжировок, работа с Wargaming.',
-    url: 'https://idgieprod.com', // Замените на ваш домен
+    url: 'https://idgieprod.com',
     siteName: 'IDGIE.Prod',
     images: [
       {
-        url: '/images/og-image.jpg', // Локальный путь или внешний URL
-        width: 1200,
+        url: '/images/icons/favicon/og-image.png', // Локальный путь или внешний URL
+        width: 1268,
         height: 630,
         alt: 'IDGIE.Prod — Музыкальный продюсер',
       },
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     title: 'IDGIE.Prod | Музыкальный продюсер',
     description:
       'IDGIE — продюсер и звукорежиссёр с 14-летним опытом. Уникальный звук для ваших проектов.',
-    images: ['/images/twitter-image.jpg'], // Локальный путь или внешний URL
+    images: ['/images/icons/favicon/og-image.png'], // Локальный путь или внешний URL
     creator: '@idgieprod', // Ваш Twitter/X handle, если есть
   },
 
@@ -106,7 +106,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://idgieprod.com', // Канонический URL для избежания дублирования
   },
-  themeColor: '#000000', // Цвет темы для браузера (например, для мобильных устройств)
   category: 'Music Production',
 };
 
