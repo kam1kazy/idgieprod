@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://idgieprod.com'), // Замените на ваш реальный домен
+  metadataBase: new URL('https://idgieprod.ru'), // Замените на ваш реальный домен
   // Основные метаданные
   title: 'IDGIE.Prod | Музыкальный продюсер и звукорежиссёр',
   description:
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
 
   // Дополнительные метатеги
   alternates: {
-    canonical: 'https://idgieprod.com', // Канонический URL для избежания дублирования
+    canonical: 'https://idgieprod.ru', // Канонический URL для избежания дублирования
   },
   category: 'Music Production',
 };
