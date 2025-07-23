@@ -9,15 +9,22 @@ const exo2 = Exo_2({
   variable: '--font-exo2',
 });
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 import GlowEffect from '@/components/GlowEffect/GlowEffect';
 import { PlayerProvider } from '@/components/Player/context/PlayerContext';
 
 import { gunnyRewritten, inspiration, marckScript, ntSomic, ntSomicVariable } from './fonts';
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#000000', // Ваш цвет темы
+};
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://idgieprod.com'), // Замените на ваш реальный домен
   // Основные метаданные
   title: 'IDGIE.Prod | Музыкальный продюсер и звукорежиссёр',
   description:
@@ -98,11 +105,6 @@ export const metadata: Metadata = {
   // Дополнительные метатеги
   alternates: {
     canonical: 'https://idgieprod.com', // Канонический URL для избежания дублирования
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
   },
   themeColor: '#000000', // Цвет темы для браузера (например, для мобильных устройств)
   category: 'Music Production',
