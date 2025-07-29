@@ -41,7 +41,7 @@ const GlowEffect: React.FC = () => {
 
   const glowLeftStyle = {
     transform: `
-      translateY(${scrollY * 0.25}px)
+      translateY(${scrollY / 50 * 0.25}px)
       translateX(${
         -offsetX + // базовое смещение влево
         Math.sin(scrollY * 0.006) * GLOW_SIZE.translateVariation + // "змейка"
@@ -54,7 +54,7 @@ const GlowEffect: React.FC = () => {
 
   const glowRightStyle = {
     transform: `
-      translateY(${scrollY * 0.15}px)
+      translateY(${scrollY / 50 * 0.15}px)
       translateX(${
         offsetX + // базовое смещение вправо
         Math.cos(scrollY * 0.008) * GLOW_SIZE.translateVariation + // "змейка"

@@ -42,12 +42,6 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [loadingTrack, setLoadingTrack] = useState<Track | null>(null);
   const [playingTrack, setPlayingTrack] = useState<Track | null>(null);
 
-  // setTimeout(() => {
-  //   console.log('asdasd:');
-  //   setLoadingTrack(null); // Сбрасываем loadingTrack при успешном воспроизведении
-  //   setPlayingTrack(currentTrack); // Устанавливаем playingTrack
-  // }, 10);
-
   const handlePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -64,7 +58,6 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
           });
       }
     }
-    console.log('12312312:');
   };
 
   const handleTrackSelect = (track: Track) => {
@@ -145,7 +138,6 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   };
 
   const handleCanPlay = () => {
-    console.log('handleCanPlay triggered', { currentTrack, audioRef: audioRef.current });
     if (audioRef.current && currentTrack) {
       setLoadingTrack(null);
       setPlayingTrack(currentTrack);

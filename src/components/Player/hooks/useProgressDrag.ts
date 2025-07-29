@@ -6,8 +6,8 @@ export const useProgressDrag = (onSeek: (progress: number) => void) => {
 
   const calculateTime = (clientX: number, element: HTMLDivElement) => {
     const rect = element.getBoundingClientRect();
-    const width = rect.width;
     const clickX = clientX - rect.left;
+    const width = rect.width;
     const percentage = (clickX / width) * 100;
     return Math.max(0, Math.min(100, percentage));
   };
