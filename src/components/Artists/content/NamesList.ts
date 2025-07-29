@@ -8,7 +8,7 @@ export interface Artist {
 export const artists: Artist[] = [
   {
     name: 'Noize MC',
-    avatar: '/images/artists/noize-mc.jpg',
+    avatar: '/images/artists/noize-mc2.jpg',
     description: 'Российский рэп-исполнитель, автор песен',
     works: ['Альбом "Время" (2023)', 'Сингл "Пространство" (2022)', 'Сингл "Момент" (2021)'],
   },
@@ -32,7 +32,7 @@ export const artists: Artist[] = [
   },
   {
     name: 'RAM',
-    avatar: '/images/artists/ram.jpg',
+    avatar: '/images/artists/ram2.jpg',
     description: 'Российский рэп-исполнитель, известный глубокими текстами и мощной подачей',
     works: ['Альбом "Сознание" (2023)', 'Сингл "Тень" (2022)', 'Сингл "Пробуждение" (2021)'],
   },
